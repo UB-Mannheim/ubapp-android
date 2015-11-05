@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!--  item android:id="@+id/action_search"
+          android:icon="@drawable/website"
+          android:title="Webseite"/>
+    <item android:id="@+id/action_compose"
+          android:icon="@drawable/catalogue"
+          android:title="Primo" /-->
+          
+     <item android:id="@+id/action_config"
+          android:title="@string/config_de"
+          android:showAsAction="always" />
+     
+     <item android:id="@+id/action_help"
+          android:title="@string/help_de"
+          android:showAsAction="always" />
+</menu>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="cache_enabled">true</string>
+	<string name="load_intervall">5</string>
+	<string name="news_count">10</string>
+</resources>

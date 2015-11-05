@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Network">
+        <Preference
+            android:summary="Network Connection State (true false)"
+            android:title="Set Connection State"
+            android:key="ConnectionState"
+            android:defaultValue="true"
+            />
+    </PreferenceCategory>                
+ 
+    <PreferenceCategory android:title="Configuration">
+        <Preference
+            android:summary="Local Cache"
+            android:title="Switch Cache on off"
+            android:key="Cache"
+            android:defaultValue="1"
+            />
+        <Preference
+            android:summary="Load Interval (1 2 3)"
+            android:title="Set Load Interval"
+            android:key="LoadInterval"
+            android:defaultValue="1" />
+        <Preference
+            android:summary="News Count (5 10 15)"
+            android:title="Set Number of News"
+            android:key="NewsCount"
+            android:defaultValue="5" />
+        
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="Category 2">
+        <CheckBoxPreference
+            android:title="Checkbox"
+            android:defaultValue="false"
+            android:summary="True of False"
+            android:key="checkboxPref" />
+        <EditTextPreference
+            android:summary="Enter a string"
+            android:defaultValue="[Enter a string here]"
+            android:title="Edit Text"
+            android:key="editTextPref" 
+            android:name="EditText"/>            
+        <RingtonePreference
+            android:summary="Select a ringtone"
+            android:title="Ringtones"
+            android:key="ringtonePref" 
+            android:name="Ringtone Preference" />            
+        <PreferenceScreen                
+            android:title="Second Preference Screen"
+            android:summary=
+                "Click here to go to the second Preference Screen"
+            android:key="secondPrefScreenPref" >                            
+            <EditTextPreference
+                android:summary="Enter a string"
+                android:title="Edit Text (second Screen)"
+                android:key="secondEditTextPref" 
+                android:name="EditText" />                
+        </PreferenceScreen>        
+    </PreferenceCategory>  
+ 
+</PreferenceScreen>

@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Search, should appear as action button -->
+    <!--  item android:id="@+id/action_search.old"
+          android:icon="@drawable/ic_action_new"
+          android:title="Search"
+          android:showAsAction="always"/-->
+    <item android:id="@+id/action_wwwCatalogue"
+          android:title="Online-Katalog"
+          android:showAsAction="always"/>
+    <item android:id="@+id/action_wwwSearch"
+          android:title="Suchen und bestellen"
+          android:showAsAction="always"/>
+    <item android:id="@+id/action_wwwElectronicMedia"
+          android:title="Elektronische Medien"
+          android:showAsAction="always"/>
+    <item android:id="@+id/action_wwwService"
+          android:title="Service"
+          android:showAsAction="always"/>
+    <item android:id="@+id/action_wwwInformation"
+          android:title="Fachinformation"
+          android:showAsAction="always"/>
+    <item android:id="@+id/action_wwwNews"
+          android:title="Aktuelles"
+          android:showAsAction="always"/>
+    <item android:id="@+id/action_wwwUB"
+          android:title="Die UB"
+          android:showAsAction="always"/>
+    <item android:id="@+id/action_wwwLibrarySections"
+          android:title="Bibliotheksbereiche"
+          android:showAsAction="always"/>
+    <item android:id="@+id/action_wwwContact"
+          android:title="Kontakt"
+          android:showAsAction="always"/>
+</menu>
