@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+    
+    <!-- Action Overflow verstecken
+    	item
+	    android:id="@+id/always_in_overflow"
+	    android:showAsAction="never"
+	    android:title="Test"/>
+	-->
+	
+</menu>
+<!-- From: file:/F:/svn/UBMannheim_AndroidStudio/app/src/main/res/menu/main.xml -->

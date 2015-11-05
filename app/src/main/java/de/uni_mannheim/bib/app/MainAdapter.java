@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Universitätsbibliothek Mannheim
+ * Copyright (C) 2014 UniversitÃ¤tsbibliothek Mannheim
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
@@ -174,8 +174,8 @@ public class MainAdapter extends BaseAdapter {
 					openWebViewWithUrl(context, BlogActivity.class, "", "");
 				}
 
-				// onClick >> FREIE PLÄTZE
-				if (result[position].equals("Freie Plätze")) {
+				// onClick >> FREIE PLï¿½TZE
+				if (result[position].equals("Freie Plï¿½tze")) {
 					openWebViewWithUrl(context, LoadActivity.class, "", "");
 				}
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Universitätsbibliothek Mannheim
+ * Copyright (C) 2014 UniversitÃ¤tsbibliothek Mannheim
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
@@ -315,11 +315,11 @@ public class ConfigActivity<E> extends ActionBarActivity {
 				
 				if(restart_app) {
 					new AlertDialog.Builder(ConfigActivity.this)
-					.setTitle("Änderung der Startoptionen")
+					.setTitle("ï¿½nderung der Startoptionen")
 					.setMessage(
-							"Um die Änderung der Startoption "
+							"Um die ï¿½nderung der Startoption "
 									+ "wirksam zu machen ist ein Neustart "
-									+ "der App nötig.\n"
+									+ "der App nï¿½tig.\n"
 									+ "Wollen Sie die App jetzt neu starten?")
 					.setPositiveButton("Jetzt",
 							new DialogInterface.OnClickListener() {
@@ -347,7 +347,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 								    startActivity(i);
 								}
 							})
-					.setNegativeButton("Später",
+					.setNegativeButton("Spï¿½ter",
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(
@@ -438,8 +438,8 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		// "1", "Learning Center am Samstag, 18. Oktober 2014 geschlossen",
 		// "Am Samstag, 18. Oktober ist das Learning Center im Bibliotheksbereich Schloss Schneckenhof wegen notwendiger Handwerkerarbeiten geschlossen.",
 		// "http://blog.bib.uni-mannheim.de/Aktuelles/?p=10541", "10541"
-		// "2", "De Gruyter-Datenbanken für Jura im Testzugriff bis 31.12.2014",
-		// "Der Verlag de Gruyter stellt bis zum 31. Dezember 2014 die folgenden Großkommentare, die jetzt auch als Online-Datenbanken angeboten werden, zum Testen an der Universität Mannheim zur Verfügung. Die Datenbanken bieten Suchfunktionen und Verlinkungen auf die in den Kommentaren zitierten Normen und Entscheidungen.",
+		// "2", "De Gruyter-Datenbanken fï¿½r Jura im Testzugriff bis 31.12.2014",
+		// "Der Verlag de Gruyter stellt bis zum 31. Dezember 2014 die folgenden Groï¿½kommentare, die jetzt auch als Online-Datenbanken angeboten werden, zum Testen an der Universitï¿½t Mannheim zur Verfï¿½gung. Die Datenbanken bieten Suchfunktionen und Verlinkungen auf die in den Kommentaren zitierten Normen und Entscheidungen.",
 		// "http://blog.bib.uni-mannheim.de/Aktuelles/?p=10499", "10499"
 
 	}

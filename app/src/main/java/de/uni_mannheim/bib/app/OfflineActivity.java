@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Universitätsbibliothek Mannheim
+ * Copyright (C) 2014 UniversitÃ¤tsbibliothek Mannheim
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
@@ -84,9 +84,9 @@ public class OfflineActivity extends ActionBarActivity {
 					.setTitle(
 							"Verbindungsfehler")
 					.setMessage(
-							"Bitte verbinden Sie Ihr Gerät mit dem Internet, "
-							+ "um Webinhalte abrufen zu können. Sie werden nun "
-							+ "zum Startmenü weitergeleitet.")
+							"Bitte verbinden Sie Ihr Gerï¿½t mit dem Internet, "
+							+ "um Webinhalte abrufen zu kï¿½nnen. Sie werden nun "
+							+ "zum Startmenï¿½ weitergeleitet.")
 					.setPositiveButton(
 							"Ok",
 							new DialogInterface.OnClickListener() {

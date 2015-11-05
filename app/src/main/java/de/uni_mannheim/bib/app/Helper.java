@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Universit‰tsbibliothek Mannheim
+ * Copyright (C) 2014 Universit√§tsbibliothek Mannheim
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>

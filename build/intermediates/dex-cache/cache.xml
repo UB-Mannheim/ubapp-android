@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="F:\svn\UBMannheim_AndroidStudio\app\libs\jsoup-1.8.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="580e4dd2a6125cc4037450b40623ac6a552c11df">
+        <dex dex="F:\svn\UBMannheim_AndroidStudio\app\build\intermediates\pre-dexed\debug\jsoup-1.8.2-b0e5c3f2b58f5492bad720056a40e638f39d7e71.jar" />
+    </item>
+    <item
+        jar="C:\Users\wagneral\android-sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="F:\svn\UBMannheim_AndroidStudio\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-cd502fd0dd02293c1b76daabb1f3d1cf647d813d.jar" />
+    </item>
+    <item
+        jar="F:\svn\UBMannheim_AndroidStudio\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28">
+        <dex dex="F:\svn\UBMannheim_AndroidStudio\app\build\intermediates\pre-dexed\debug\classes-9238d6aced7f2c8a7a0469c6d78188e2877a704d.jar" />
+    </item>
+
+</items>

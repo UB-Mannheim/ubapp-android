@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Universitätsbibliothek Mannheim
+ * Copyright (C) 2014 UniversitÃ¤tsbibliothek Mannheim
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
@@ -133,11 +133,11 @@ public class LoadActivity extends ActionBarActivity {
 
 				if (network_state.equals("false")) {
 					new AlertDialog.Builder(LoadActivity.this)
-							.setTitle("Laden der Daten nicht möglich")
+							.setTitle("Laden der Daten nicht mï¿½glich")
 							.setMessage(
 									"Um die Anzeige zu aktualisieren "
 											+ "ist eine Verbindung zum Internet "
-											+ "nötig.")
+											+ "nï¿½tig.")
 							.setPositiveButton("Ok",
 									new DialogInterface.OnClickListener() {
 										@Override
@@ -490,9 +490,9 @@ public class LoadActivity extends ActionBarActivity {
 											.setTitle(
 													"Keine Daten im Cache vorhanden")
 											.setMessage(
-													"Um freie Plätze anzeigen zu können "
+													"Um freie Plï¿½tze anzeigen zu kï¿½nnen "
 															+ "ist eine initiale Verbindung zum Internet "
-															+ "nötig. Sie werden nun zum Startmenu "
+															+ "nï¿½tig. Sie werden nun zum Startmenu "
 															+ "weitergeleitet.")
 											.setPositiveButton(
 													"Ok",
@@ -551,9 +551,9 @@ public class LoadActivity extends ActionBarActivity {
 										.setMessage(
 												"Bei nicht aktiviertem Daten-Cache wird eine bestehende "
 												+ "Internetverbindung zur Darstellung der Funktion News "
-												+ "benötigt. Bitte verbinden Sie Ihr Gerät mit dem Internet "
+												+ "benï¿½tigt. Bitte verbinden Sie Ihr Gerï¿½t mit dem Internet "
 												+ "und versuchen Sie es erneut. Sie werden nun zum "
-												+ "Startmenü weitergeleitet.")
+												+ "Startmenï¿½ weitergeleitet.")
 										.setPositiveButton(
 												"Ok",
 												new DialogInterface.OnClickListener() {
@@ -746,7 +746,7 @@ public class LoadActivity extends ActionBarActivity {
 			.setTitle(
 					"Verbindungsfehler")
 			.setMessage(
-					"Für diese Anwendung ist eine Datenverbindung erforderlich. "
+					"Fï¿½r diese Anwendung ist eine Datenverbindung erforderlich. "
 						+ "Atkivieren Sie Mobilfunk oder Wi-Fi, um Daten "
 						+ "herunterzuladen.")
 			.setPositiveButton(

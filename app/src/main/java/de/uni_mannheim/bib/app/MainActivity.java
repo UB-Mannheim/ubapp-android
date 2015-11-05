@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Universitätsbibliothek Mannheim
+ * Copyright (C) 2014 UniversitÃ¤tsbibliothek Mannheim
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
@@ -53,7 +53,7 @@ public class MainActivity extends ActionBarActivity {
 
 	// public static String[] prgmNameList = { "Website", "Katalog", "Aktuelles",
 	public static String[] prgmNameList = { "Website", "Primo", "News",
-			"Freie Plätze" };
+			"Freie Plï¿½tze" };
 
 	/*
 	public static int[] prgmImages = { R.drawable.lila_dunkel_www_rund,

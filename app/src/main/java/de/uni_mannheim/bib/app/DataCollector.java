@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Universit‰tsbibliothek Mannheim
+ * Copyright (C) 2014 Universit√§tsbibliothek Mannheim
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
@@ -36,8 +36,8 @@ public class DataCollector {
 	 * Klasse zum Sammeln der anzuzeigenden Daten News Online [OK] / News Lokal
 	 * [OK] Load Online [OK] / Load Lokal [OK]
 	 * 
-	 * Die R¸ckgabe soll als News Liste und [String[] --> OK, wird erwartet]
-	 * Load Liste [OK] mˆglich sein
+	 * Die RÔøΩckgabe soll als News Liste und [String[] --> OK, wird erwartet]
+	 * Load Liste [OK] mÔøΩglich sein
 	 * 
 	 * Funktionen :: Auslesen von Online Sourcen / Datenbanken / Textdateien >>
 	 * using BlogParser and URLParser [OK]

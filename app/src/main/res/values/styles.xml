@@ -23,8 +23,8 @@
     </style>
     
 	<!--  Dashboard landscape -->
-	<style name="dashboard">
+	<!-- style name="dashboard">
         <item name="android:numColumns">3</item>
-    </style>
+    </style -->
     
 </resources>

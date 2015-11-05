@@ -1,5 +1,5 @@
 /*
-  * Copyright (C) 2014 Universitätsbibliothek Mannheim
+  * Copyright (C) 2014 UniversitÃ¤tsbibliothek Mannheim
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
@@ -309,9 +309,9 @@ public class BlogActivity extends ActionBarActivity {
 											.setTitle(
 													"Keine Daten im Cache vorhanden")
 											.setMessage(
-													"Um die Neuigkeiten anzeigen zu können "
+													"Um die Neuigkeiten anzeigen zu kï¿½nnen "
 															+ "ist eine initiale Verbindung zum Internet "
-															+ "nötig. Sie werden nun zum Startmenu "
+															+ "nï¿½tig. Sie werden nun zum Startmenu "
 															+ "weitergeleitet.")
 											.setPositiveButton(
 													"Ok",
@@ -359,9 +359,9 @@ public class BlogActivity extends ActionBarActivity {
 										.setMessage(
 												"Bei nicht aktiviertem Daten-Cache wird eine bestehende " 
 												+ "Internetverbindung zur Darstellung der Funktion Freie "
-												+ "Plätze benötigt. Bitte verbinden Sie Ihr Gerät mit dem " 
+												+ "Plï¿½tze benï¿½tigt. Bitte verbinden Sie Ihr Gerï¿½t mit dem " 
 												+ "Internet und versuchen Sie es erneut. Sie werden nun "
-												+ "zum Startmenü weitergeleitet."		
+												+ "zum Startmenï¿½ weitergeleitet."		
 												)
 										.setPositiveButton(
 												"Ok",
@@ -458,7 +458,7 @@ public class BlogActivity extends ActionBarActivity {
 			.setTitle(
 					"Verbindungsfehler")
 			.setMessage(
-					"Für diese Anwendung ist eine Datenverbindung erforderlich. "
+					"Fï¿½r diese Anwendung ist eine Datenverbindung erforderlich. "
 						+ "Atkivieren Sie Mobilfunk oder Wi-Fi, um Daten "
 						+ "herunterzuladen.")
 			.setPositiveButton(
