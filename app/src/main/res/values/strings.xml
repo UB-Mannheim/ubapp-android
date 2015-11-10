@@ -33,5 +33,20 @@
     <!-- Speech Input Primo -->
     <string name="speech_prompt">Nennen Sie Ihren Suchbegriff&#8230;</string>
     <string name="speech_not_supported">Entschuldigung! Ihr Geraet unterstuetzt keine Spracheingaben.</string>
+
+    <!-- Other -->
+    <string name="home">Home</string>
+    <string name="home_en">Home</string>
+
+    <!-- Menu and Bars -->
+    <string name="startup_menu_www_de">Website</string>
+    <string name="startup_menu_primo_de">Primo</string>
+    <string name="startup_menu_news_de">News</string>
+    <string name="startup_menu_seats_de">Freie Plätze</string>
+
+    <string name="startup_menu_www_en">Website</string>
+    <string name="startup_menu_primo_en">Primo</string>
+    <string name="startup_menu_news_en">News</string>
+    <string name="startup_menu_seats_en">Free Seats</string>
     
 </resources>
