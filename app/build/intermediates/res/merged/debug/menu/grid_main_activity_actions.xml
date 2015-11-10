@@ -1,8 +1,0 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    
-    <item android:id="@+id/search_bar"
-          android:icon="@drawable/website"
-          android:title="Home"/>
-
-</menu>
-<!-- From: file:/F:/svn/UBMannheim_AndroidStudio/app/src/main/res/menu/grid_main_activity_actions.xml -->
