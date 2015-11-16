@@ -32,7 +32,7 @@
     
     <!-- Speech Input Primo -->
     <string name="speech_prompt">Nennen Sie Ihren Suchbegriff&#8230;</string>
-    <string name="speech_not_supported">Entschuldigung! Ihr Geraet unterstuetzt keine Spracheingaben.</string>
+    <string name="speech_not_supported">Entschuldigung! Ihr Gerät unterstützt keine Spracheingaben.</string>
 
     <!-- Other -->
     <string name="home">Home</string>
