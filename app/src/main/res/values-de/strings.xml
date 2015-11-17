@@ -21,34 +21,55 @@
     <string name="title_activity_test_dbactivity2">TestDBActivity2</string>
     <string name="title_activity_help">HelpActivity</string>
     <string name="title_activity_start_up">StartUp</string>
-    
-    <!-- custom strings de -->
-    <string name="loading_de">Lade Inhalte</string>
-    <string name="config_de">Einstellungen</string>
-    <string name="help_de">Hilfe</string>
 
-    <!-- custom strings en -->
-    <string name="loading_en">Loading Content</string>
-    
+    <!-- Menu and Bars -->
+    <string name="status_bar_title">UB Mannheim</string>
+    <string name="alert_loading">Lade Inhalte</string>
+
+    <!-- General -->
+    <string name="__startup__">Startmenü</string>
+    <string name="__www__">Website</string>
+    <string name="__primo__">Primo</string>
+    <string name="__news__">News</string>
+    <string name="__seats__">Freie Plätze</string>
+    <string name="__config__">Einstellungen</string>
+    <string name="__help__">Hilfe</string>
+
+    <!-- Activities -->
+    <string name="news_activity_caption">Aktuelles aus unserem Blog</string>
+
+    <string name="free_seats_activity_caption">Auslastung [DATE] Uhr</string>
+    <string name="free_seats_activity_label_schneckenhof">Schneckenhof - West</string>
+    <string name="free_seats_activity_label_learningcenter">Learning Center</string>
+    <string name="free_seats_activity_label_schneckenhofsued">Schneckenhof - Süd</string>
+    <string name="free_seats_activity_label_ehrenhof">Ehrenhof (Hasso-Plattner-Bibliothek)</string>
+    <string name="free_seats_activity_label_a3">Bereich A3</string>
+    <string name="free_seats_activity_label_a5">Bereich A5</string>
+
+    <string name="config_activity_caption">Einstellungen</string>
+    <string name="config_activity_label_cache">Daten-Cache</string>
+    <string name="config_activity_switch_cache_on">Ein</string>
+    <string name="config_activity_switch_cache_off">Aus</string>
+    <string name="config_activity_label_startup">Starte UB App mit</string>
+    <string name="config_activity_label_news">Angezeigte News-Einträge</string>
+    <string name="config_activity_button_save">Speichern</string>
+
+    <string name="help_activity_caption">Hilfe zur Bedienung</string>
+    <string name="help_activity_label_www_description">Öffnet die mobile Version der UB-Homepage mit umfassenden Informationen rund im die Bibliothek.</string>
+    <string name="help_activity_label_primo_description">In der mobilen Version des Online-Katalogs Primo der UB Mannheim stehen Ihnen alle bekannten Funktionalitäten wie Recherche, Ausleihe, Fernleihe und die Kontofunktionen zur Verfügung.</string>
+    <string name="help_activity_label_news_description">Anzeige der letzten 5 Meldungen aus dem Aktuelles-Weblog der UB Mannheim. Die Anzahl der angezeigten Einträge kann über das Menü Einstellungen verändert werden.</string>
+    <string name="help_activity_label_free_seats_description">Ein Ampelsystem informiert über die Verfügbarkeit von Arbeitsplätzen in den einzelnen Bibliotheksbereichen.</string>
+    <string name="help_activity_label_config_description">Das Einstellungsmodul bietet Möglichkeiten zur Personalisierung der App.</string>
+    <string name="help_activity_label_config_description_cache">Die Aktivierung der Cache-Funktion erzeugt eine Datenbank zur lokalen Speicherung der zuletzt heruntergeladenen Daten der Funktionen News und Freie Plätze. Die gespeicherten Daten werden angezeigt, sobald kein Internet-Zugriff zur Verfügung steht. Die Deaktivierung des Daten-Caches löscht die angelegte Datenbank. In der Standardeinstellung ist die Cache-Funktion deaktiviert, d.h. es existiert kein Zwischenspeicher und alle Daten müssen online abgerufen werden.</string>
+    <string name="help_activity_label_config_description_news">Legen Sie fest, wie viele Beiträge aus dem Aktuelles-Weblog unter News angezeigt werden: 5 (Standardeinstellung), 10 und 15.</string>
+    <string name="help_activity_label_config_description_startup">Wählen Sie Ihre persönliche Startfunktion der UB-App: Startmenü (Standardeinstellung), Website, Primo, News und Freie Plätze.</string>
+    <string name="help_activity_label_config_description_help">Eine integrierte Hilfe Funktion ergänzt das Angebot der App.</string>
+
     <!-- Speech Input Primo -->
     <string name="speech_prompt">Nennen Sie Ihren Suchbegriff&#8230;</string>
     <string name="speech_not_supported">Entschuldigung! Ihr Gerät unterstützt keine Spracheingaben.</string>
 
     <!-- Other -->
     <string name="home">Home</string>
-    <string name="home_en">Home</string>
-
-    <!-- Menu and Bars -->
-    <string name="startup_menu_www_de">Website</string>
-    <string name="startup_menu_primo_de">Primo</string>
-    <string name="startup_menu_news_de">News</string>
-    <string name="startup_menu_seats_de">Freie Plätze</string>
-
-    <string name="startup_menu_www_en">Website</string>
-    <string name="startup_menu_primo_en">Primo</string>
-    <string name="startup_menu_news_en">News</string>
-    <string name="startup_menu_seats_en">Free Seats</string>
-
-    <string name="config_startup_type">Startmenü</string>
     
 </resources>

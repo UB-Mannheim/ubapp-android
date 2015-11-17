@@ -169,7 +169,7 @@ public class LoadActivity extends ActionBarActivity {
 		// prepare for a progress bar dialog
 		progressBar = new ProgressDialog(gv.getContext());
 		// progressBar.setCancelable(true);
-		progressBar.setMessage(getString(R.string.loading_de));
+		progressBar.setMessage(getString(R.string.alert_loading));
 		// progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		// progressBar.setProgress(0);
 		// progressBar.setMax(100);

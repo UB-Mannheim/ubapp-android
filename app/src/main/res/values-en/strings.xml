@@ -3,7 +3,7 @@
 
     <!-- string name="app_name">UniBIB Mannheim</string -->
     <!-- string name="app_name">BIBService Mannheim</string -->
-    <string name="app_name">UB Mannheim</string>
+    <string name="app_name">Mannheim University Library</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_webview">Webview</string>
@@ -21,33 +21,56 @@
     <string name="title_activity_test_dbactivity2">TestDBActivity2</string>
     <string name="title_activity_help">HelpActivity</string>
     <string name="title_activity_start_up">StartUp</string>
-    
-    <!-- custom strings de -->
-    <string name="loading_de">Lade Inhalte</string>
-    <string name="config_de">Einstellungen</string>
-    <string name="help_de">Hilfe</string>
 
-    <!-- custom strings en -->
-    <string name="loading_en">Loading Content</string>
-    
+    <!-- Menu and Bars -->
+    <string name="status_bar_title">Mannheim University Library</string>
+    <string name="alert_loading">Loading Content</string>
+
+    <!-- General -->
+    <string name="__startup__">Startup Screen</string>
+    <string name="__www__">Website</string>
+    <string name="__primo__">Primo</string>
+    <string name="__news__">News</string>
+    <string name="__seats__">Free Seats</string>
+    <string name="__config__">Einstellungen</string>
+    <string name="__help__">Hilfe</string>
+
+    <!-- Activities -->
+    <string name="news_activity_caption">News from our Blog</string>
+
+    <string name="free_seats_activity_caption">Load [DATE] [AM_PM]</string>
+    <string name="free_seats_activity_label_schneckenhof">Schneckenhof - West</string>
+    <string name="free_seats_activity_label_learningcenter">Learning Center</string>
+    <string name="free_seats_activity_label_schneckenhofsued">Schneckenhof - South</string>
+    <string name="free_seats_activity_label_ehrenhof">Ehrenhof (Hasso-Plattner-Library)</string>
+    <string name="free_seats_activity_label_a3">A3 Library</string>
+    <string name="free_seats_activity_label_a5">A5 Library</string>
+
+    <string name="config_activity_caption">Settings</string>
+    <string name="config_activity_label_cache">Cache</string>
+    <string name="config_activity_switch_cache_on">On</string>
+    <string name="config_activity_switch_cache_off">Off</string>
+    <string name="config_activity_label_startup">Start Library App with</string>
+    <string name="config_activity_label_news">News Entry Count</string>
+    <string name="config_activity_button_save">Save</string>
+
+    <string name="help_activity_caption">How to use your app</string>
+    <string name="help_activity_label_www_description">Opens up the mobile view of our website, containing comprehensive information about the university library.</string>
+    <string name="help_activity_label_primo_description">With the mobile view of our library catalogue, you can use all common functions that are available in the classic view: search, (interlibray) loan and managing your account information.</string>
+    <string name="help_activity_label_news_description">Showing the 5 latest posts from our blog. The count number can be set in the configuration menu.</string>
+    <string name="help_activity_label_free_seats_description">A traffic light system informing about the load and availibility of free seats in the different library sections.</string>
+    <string name="help_activity_label_config_description">Additionally the following settings can be changed.</string>
+    <string name="help_activity_label_config_description_cache">The activation of the cache function creates a database for local storage of the most recently downloaded data for the News and Freie Plätze. The stored data is displayed when no Internet access is available. Disabling this function will delete the created database. By default, caching is disabled, in this case all data must be accessed online.</string>
+    <string name="help_activity_label_config_description_news">Determine how many posts from the news-blog "Aktuelles" is displayed: 5 (Default), 10 and 15</string>
+    <string name="help_activity_label_config_description_startup">Select your personal startup function: Startmenü (Default) , Website, Primo, News, Freie Plätze</string>
+    <string name="help_activity_label_config_description_help">An integrated Help completes the app.</string>
+
+
     <!-- Speech Input Primo -->
     <string name="speech_prompt">Nennen Sie Ihren Suchbegriff&#8230;</string>
     <string name="speech_not_supported">Entschuldigung! Ihr Gerät unterstützt keine Spracheingaben.</string>
 
     <!-- Other -->
     <string name="home">Home</string>
-    <string name="home_en">Home</string>
 
-    <!-- Menu and Bars -->
-    <string name="startup_menu_www_de">Website</string>
-    <string name="startup_menu_primo_de">Primo</string>
-    <string name="startup_menu_news_de">News</string>
-    <string name="startup_menu_seats_de">Freie Plätze</string>
-
-    <string name="startup_menu_www_en">Website</string>
-    <string name="startup_menu_primo_en">Primo</string>
-    <string name="startup_menu_news_en">News</string>
-    <string name="startup_menu_seats_en">Free Seats</string>
-
-    <string name="config_startup_type">Startscreen</string>
 </resources>

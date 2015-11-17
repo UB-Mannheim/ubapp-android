@@ -125,7 +125,7 @@ public class WebviewActivity extends ActionBarActivity {
 
 		// set progressbar
 		progressBar = new ProgressDialog(webView.getContext());
-		progressBar.setMessage(getString(R.string.loading_de));
+		progressBar.setMessage(getString(R.string.alert_loading));
 		progressBar.show();
 
 		// create webclient

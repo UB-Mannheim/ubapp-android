@@ -26,7 +26,7 @@
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daten-Cache"
+                    android:text="@string/config_activity_label_cache"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
             </TableRow>
@@ -35,7 +35,7 @@
                 android:id="@+id/checkBox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ein" />
+                android:text="@string/config_activity_switch_cache_on" />
 
             <TableRow
                 android:id="@+id/tableRow2"
@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Angezeigte News-Einträge"
+                    android:text="@string/config_activity_label_news"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </TableRow>
 
@@ -87,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@string/config_startup_type"
+                    android:text="@string/config_activity_label_startup"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:visibility="visible" />
             </TableRow>
@@ -104,13 +104,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="Startmenü" />
+                    android:text="@string/__startup__" />
 
                 <RadioButton
                     android:id="@+id/radio10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Website" />
+                    android:text="@string/__www__" />
 
                 <RadioButton
                     android:id="@+id/radio11"
@@ -122,13 +122,13 @@
                     android:id="@+id/radio12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="News" />
+                    android:text="@string/__news__" />
 
                 <RadioButton
                     android:id="@+id/radio13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Freie Plätze" />
+                    android:text="@string/__seats__" />
             </RadioGroup>
 
             <TableRow
@@ -140,7 +140,7 @@
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Speichern" />
+                android:text="@string/config_activity_button_save" />
 
             </TableRow>
         </TableLayout>

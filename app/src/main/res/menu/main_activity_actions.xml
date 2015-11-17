@@ -7,10 +7,10 @@
           android:title="Primo" /-->
           
      <item android:id="@+id/action_config"
-          android:title="@string/config_de"
+          android:title="@string/__config__"
           android:showAsAction="always" />
      
      <item android:id="@+id/action_help"
-          android:title="@string/help_de"
+          android:title="@string/__help__"
           android:showAsAction="always" />
 </menu>
