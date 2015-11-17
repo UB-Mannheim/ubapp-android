@@ -87,10 +87,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Starte UB-App mit"
+                    android:text="@string/config_startup_type"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:visibility="visible" />
-
             </TableRow>
 
             <RadioGroup

@@ -1,5 +1,7 @@
 <resources>
 
+    <!-- is this file ever used ? -->
+
     <string name="title_activity_settings">Settings</string>
 
     <!--  UB Test Settings Start -->
@@ -28,7 +30,7 @@
     <string name="pref_startup_activity_title_add">Funktion auwählen</string>
     
     <string-array name="pref_startup_activity_list_titles">
-        <item>Startemenü</item>
+        <item>StartScreen</item>
         <item>Website</item>
         <item>Katalog</item>
         <item>Aktuelles</item>

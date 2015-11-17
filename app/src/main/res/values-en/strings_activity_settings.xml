@@ -1,5 +1,7 @@
 <resources>
 
+    <!-- is this file ever used ? -->
+
     <string name="title_activity_settings">Settings</string>
 
     <!--  UB Test Settings Start -->

@@ -48,5 +48,7 @@
     <string name="startup_menu_primo_en">Primo</string>
     <string name="startup_menu_news_en">News</string>
     <string name="startup_menu_seats_en">Free Seats</string>
+
+    <string name="config_startup_type">Startmenü</string>
     
 </resources>
