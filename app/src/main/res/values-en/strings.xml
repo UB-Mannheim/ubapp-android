@@ -32,8 +32,8 @@
     <string name="__primo__">Primo</string>
     <string name="__news__">News</string>
     <string name="__seats__">Free Seats</string>
-    <string name="__config__">Einstellungen</string>
-    <string name="__help__">Hilfe</string>
+    <string name="__config__">Settings</string>
+    <string name="__help__">Help</string>
 
     <!-- Activities -->
     <string name="news_activity_caption">News from our Blog</string>

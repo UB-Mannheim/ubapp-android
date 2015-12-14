@@ -51,9 +51,19 @@ public class MainActivity extends ActionBarActivity {
 
 	ArrayList<?> prgmName;
 
+	String str_www = "";
+	String str_primo = "";
+	String str_news = "";
+	String str_seats = "";
+
+
 	// public static String[] prgmNameList = { "Website", "Katalog", "Aktuelles",
-	public static String[] prgmNameList = { "Website", "Primo", "News",
-			"Freie Pl�tze" };
+	public String[] prgmNameList = new String[]{str_www, str_primo, str_news,
+			str_seats};
+	/*
+	public static String[] prgmNameList = new String[]{ str_www, str_primo, str_news,
+			str_seats };
+	*/
 
 	/*
 	public static int[] prgmImages = { R.drawable.lila_dunkel_www_rund,
@@ -84,16 +94,25 @@ public class MainActivity extends ActionBarActivity {
 
 		// customized actionbar (color, title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-		actionBar.setBackgroundDrawable(new ColorDrawable(Color
-				.parseColor("#990000")));
-		actionBar.setTitle("UB Mannheim");
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
+        actionBar.setTitle(R.string.app_name);
 
-		// ONLY DEBUG
+        // ONLY DEBUG
 		SharedPreferences settings = getSharedPreferences("preferences", 0);
 		// settings.edit().clear().commit();
 
 		// init configuration
 		initConfig();
+
+		this.str_www = this.getString(R.string.__www__);
+		this.str_primo = this.getString(R.string.__primo__);
+		this.str_news = this.getString(R.string.__news__);
+		this.str_seats = this.getString(R.string.__seats__);
+
+		this.prgmNameList[0] = this.str_www;
+		this.prgmNameList[1] = this.str_primo;
+		this.prgmNameList[2] = this.str_news;
+		this.prgmNameList[3] = this.str_seats;
 
 		// if custom_startup configured
 		boolean custom_startup = issetStartUp();

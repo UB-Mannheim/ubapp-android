@@ -27,35 +27,36 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class HelpActivity extends ActionBarActivity {
-	
+
 	private boolean log_enabled = false;
 
 	protected String getVersionCode() throws NameNotFoundException {
-		
+
 		String vcode = "";
-		
+
 		String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
 		int versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
 
 		vcode = "  UB Mannheim, Version: " + versionName + " (" + String.valueOf(versionCode) + ")";
-		
+
 		return vcode;
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
+
 		ActivityRegistry.register(this);
-		
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_help);
 
 		// customized actionbar (Color, Title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		actionBar.setBackgroundDrawable(new ColorDrawable(Color
-				.parseColor("#990000")));
-		actionBar.setTitle("UB Mannheim");
+		// actionBar.setBackgroundDrawable(new ColorDrawable(Color
+		//		.parseColor("#990000")));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
+        actionBar.setTitle(R.string.app_name);
 
 		// http://tablet-market.de/android-listview-tutorial-mit-listadapter-einsteiger/
 
@@ -87,7 +88,7 @@ public class HelpActivity extends ActionBarActivity {
 		// final TextView textView11 = (TextView) findViewById(R.id.textView11);
 		// final TextView textView12 = (TextView) findViewById(R.id.textView12);
 		// final TextView textView13 = (TextView) findViewById(R.id.textView13);
-		
+
 		final TextView textView15 = (TextView) findViewById(R.id.textView15);
 		try {
 			textView15.setText(getVersionCode());
@@ -96,7 +97,7 @@ public class HelpActivity extends ActionBarActivity {
 			e.printStackTrace();
 			textView15.setVisibility(View.GONE);
 		}
-		
+
 		tRow0.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -212,7 +213,7 @@ public class HelpActivity extends ActionBarActivity {
 					tRow10.setVisibility(View.GONE);
 					tRow11.setVisibility(View.GONE);
 					tRow12.setVisibility(View.GONE);
-					
+
 					textView2.setText(((String) textView2.getText()).replace(
 							'-', '+'));
 					textView4.setText(((String) textView4.getText()).replace(

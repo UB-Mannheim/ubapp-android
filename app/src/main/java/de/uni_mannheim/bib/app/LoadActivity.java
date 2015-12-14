@@ -96,9 +96,8 @@ public class LoadActivity extends ActionBarActivity {
 		// customized actionbar (Color, Title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		actionBar.setBackgroundDrawable(new ColorDrawable(Color
-				.parseColor("#990000")));
-		actionBar.setTitle("UB Mannheim");
+		actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
+		actionBar.setTitle(R.string.app_name);
 
 		// create refresh button
 		final ImageView imageView8 = (ImageView) findViewById(R.id.imageView8);

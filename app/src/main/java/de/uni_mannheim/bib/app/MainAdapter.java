@@ -175,7 +175,7 @@ public class MainAdapter extends BaseAdapter {
 				}
 
 				// onClick >> FREIE PL�TZE
-				if (result[position].equals("Freie Pl�tze")) {
+				if ( result[position].equals("Freie Plätze") || result[position].equals("Free Seats") ) {
 					openWebViewWithUrl(context, LoadActivity.class, "", "");
 				}
 
