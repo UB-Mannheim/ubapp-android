@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:background="#efefef"
             android:padding="10dp"
-            android:text="Hilfe zur Bedienung"
+            android:text="@string/help_activity_caption"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#333333" />
             
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="+ Website"
+                    android:text="@string/__www__"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#990000" />
                 
@@ -76,7 +76,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="10dp"
                     android:paddingRight="20dp"
-                    android:text="Öffnet die mobile Version der UB-Homepage mit umfassenden Informationen rund um die Bibliothek."
+                    android:text="@string/help_activity_label_www_description"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
 
@@ -96,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="+ Primo"
+                    android:text="@string/__primo__"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#990000" />
                 
@@ -118,7 +118,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="10dp"
                     android:paddingRight="20dp"
-                    android:text="In der mobilen Version des Online-Katalogs Primo der UB Mannheim stehen Ihnen alle bekannten Funktionalitäten wie Recherche, Ausleihe, Fernleihe und die Kontofunktionen zur Verfügung."
+                    android:text="@string/help_activity_label_primo_description"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
 
@@ -138,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="+ News"
+                    android:text="@string/__news__"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#990000" />
                 
@@ -160,7 +160,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="10dp"
                     android:paddingRight="20dp"
-                    android:text="Anzeige der letzten 5 Meldungen aus dem Aktuelles-Weblog der UB Mannheim. Die Anzahl der angezeigten Einträge kann über das Menü &quot;Einstellungen&quot; verändert werden."
+                    android:text="@string/help_activity_label_news_description"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
 
@@ -180,7 +180,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="+ Freie Plätze"
+                    android:text="@string/__seats__"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#990000" />
                 
@@ -202,7 +202,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="10dp"
                     android:paddingRight="20dp"
-                    android:text="Ein Ampelsystem informiert über die Verfügbarkeit von Arbeitsplätzen in den einzelnen Bibliotheksbereichen."
+                    android:text="@string/help_activity_label_free_seats_description"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
 
@@ -222,7 +222,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="+ Einstellungen"
+                    android:text="@string/__config__"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#990000" />
                 
@@ -245,7 +245,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="10dp"
                     android:paddingRight="20dp"
-                    android:text="Bietet Möglichkeiten zur Personalisierung der UB-App."
+                    android:text="@string/help_activity_label_config_description"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
 
@@ -268,9 +268,10 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="10dp"
                     android:paddingRight="20dp"
-                    android:text="Daten-Cache\n \nDie Aktivierung der Cache-Funktion erzeugt eine Datenbank zur lokalen Speicherung der zuletzt heruntergeladenen Daten der Funktionen &quot;News&quot; und &quot;Freie Plätze&quot;. Die gespeicherten Daten werden angezeigt,  sobald kein Internet-Zugriff zur Verfügung steht. Die Deaktivierung des Daten-Caches löscht die angelegte Datenbank. In der Standardeinstellung ist die Cache-Funktion deaktiviert, d.h. es existiert kein Zwischenspeicher und alle Daten müssen online abgerufen werden."
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#333333" />
+                    android:textColor="#333333"
+                    android:singleLine="false"
+                    android:text="@string/help_activity_label_config_description_cache" />
 
             </TableRow>
             
@@ -292,7 +293,7 @@
                     android:layout_marginBottom="1dp"
                     android:inputType="textMultiLine"
                     android:paddingRight="20dp"
-                    android:text="Angezeigte News-Einträge\n \nLegen Sie fest, wie viele Beiträge aus dem Aktuelles-Weblog unter &quot;News&quot; angezeigt werden:\n5 (Standardeinstellung), 10 und 15"
+                    android:text="@string/help_activity_label_config_description_news"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
                 
@@ -319,9 +320,9 @@
                     android:layout_marginBottom="1dp"
                     android:inputType="textMultiLine"
                     android:paddingRight="20dp"
-                    android:text="Starte UB-App mit\n \nWählen Sie Ihre persönliche Startfunktion der UB-App:\nStartmenü (Standardeinstellung), Website, Primo, News und Freie Plätze"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#333333" />
+                    android:textColor="#333333"
+                    android:text="@string/help_activity_label_config_description_startup" />
             </TableRow>
 
             <TableRow

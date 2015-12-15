@@ -27,7 +27,7 @@
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Auslastung"
+                    android:text="@string/free_seats_activity_caption"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
 
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
-                    android:text="Bibliotheksbereich"
+                    android:text="@string/free_seats_activity_caption_section"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
                 
@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="45dp"
-                    android:text="InfoCenter"
+                    android:text="@string/free_seats_activity_label_schneckenhof"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
             </TableRow>
@@ -146,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="45dp"
-                    android:text="Learning Center"
+                    android:text="@string/free_seats_activity_label_learningcenter"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
             </TableRow>
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="45dp"
-                    android:text="Schneckenhof (BWL)"
+                    android:text="@string/free_seats_activity_label_schneckenhofsued"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
             </TableRow>
@@ -213,7 +213,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="45dp"
-                    android:text="Ehrenhof (Hasso-Plattner-Bibliothek)"
+                    android:text="@string/free_seats_activity_label_ehrenhof"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
             </TableRow>
@@ -246,7 +246,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="45dp"
-                    android:text="Bereich A3"
+                    android:text="@string/free_seats_activity_label_a3"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
             </TableRow>
@@ -281,7 +281,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="45dp"
-                    android:text="Bereich A5"
+                    android:text="@string/free_seats_activity_label_a5"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#333333" />
             </TableRow>

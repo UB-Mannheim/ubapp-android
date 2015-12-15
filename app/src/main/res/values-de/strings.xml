@@ -38,7 +38,9 @@
     <!-- Activities -->
     <string name="news_activity_caption">Aktuelles aus unserem Blog</string>
 
-    <string name="free_seats_activity_caption">Auslastung [DATE] Uhr</string>
+    <string name="free_seats_activity_caption">Auslastung</string>
+    <string name="free_seats_activity_caption_section">Bibliotheksbereich</string>
+    <string name="free_seats_activity_caption_date">[DATE] Uhr</string>
     <string name="free_seats_activity_label_schneckenhof">Schneckenhof - West</string>
     <string name="free_seats_activity_label_learningcenter">Learning Center</string>
     <string name="free_seats_activity_label_schneckenhofsued">Schneckenhof - Süd</string>
@@ -60,9 +62,9 @@
     <string name="help_activity_label_news_description">Anzeige der letzten 5 Meldungen aus dem Aktuelles-Weblog der UB Mannheim. Die Anzahl der angezeigten Einträge kann über das Menü Einstellungen verändert werden.</string>
     <string name="help_activity_label_free_seats_description">Ein Ampelsystem informiert über die Verfügbarkeit von Arbeitsplätzen in den einzelnen Bibliotheksbereichen.</string>
     <string name="help_activity_label_config_description">Das Einstellungsmodul bietet Möglichkeiten zur Personalisierung der App.</string>
-    <string name="help_activity_label_config_description_cache">Die Aktivierung der Cache-Funktion erzeugt eine Datenbank zur lokalen Speicherung der zuletzt heruntergeladenen Daten der Funktionen News und Freie Plätze. Die gespeicherten Daten werden angezeigt, sobald kein Internet-Zugriff zur Verfügung steht. Die Deaktivierung des Daten-Caches löscht die angelegte Datenbank. In der Standardeinstellung ist die Cache-Funktion deaktiviert, d.h. es existiert kein Zwischenspeicher und alle Daten müssen online abgerufen werden.</string>
-    <string name="help_activity_label_config_description_news">Legen Sie fest, wie viele Beiträge aus dem Aktuelles-Weblog unter News angezeigt werden: 5 (Standardeinstellung), 10 und 15.</string>
-    <string name="help_activity_label_config_description_startup">Wählen Sie Ihre persönliche Startfunktion der UB-App: Startmenü (Standardeinstellung), Website, Primo, News und Freie Plätze.</string>
+    <string name="help_activity_label_config_description_cache">Daten-Cache\n \nDie Aktivierung der Cache-Funktion erzeugt eine Datenbank zur lokalen Speicherung der zuletzt heruntergeladenen Daten der Funktionen "News" und "Freie Plätze". Die gespeicherten Daten werden angezeigt,  sobald kein Internet-Zugriff zur Verfügung steht. Die Deaktivierung des Daten-Caches löscht die angelegte Datenbank. In der Standardeinstellung ist die Cache-Funktion deaktiviert, d.h. es existiert kein Zwischenspeicher und alle Daten müssen online abgerufen werden.</string>
+    <string name="help_activity_label_config_description_news">Angezeigte News-Einträge\n \nLegen Sie fest, wie viele Beiträge aus dem Aktuelles-Weblog unter "News" angezeigt werden:\n5 (Standardeinstellung), 10 und 15</string>
+    <string name="help_activity_label_config_description_startup">Starte UB-App mit\n \nWählen Sie Ihre persönliche Startfunktion der UB-App:\nStartmenü (Standardeinstellung), Website, Primo, News und Freie Plätze.</string>
     <string name="help_activity_label_config_description_help">Eine integrierte Hilfe Funktion ergänzt das Angebot der App.</string>
 
     <!-- Speech Input Primo -->

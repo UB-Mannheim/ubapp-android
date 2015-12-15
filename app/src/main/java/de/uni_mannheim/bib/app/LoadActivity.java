@@ -21,6 +21,7 @@ package de.uni_mannheim.bib.app;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -132,11 +133,11 @@ public class LoadActivity extends ActionBarActivity {
 
 				if (network_state.equals("false")) {
 					new AlertDialog.Builder(LoadActivity.this)
-							.setTitle("Laden der Daten nicht m�glich")
+							.setTitle("Laden der Daten nicht möglich")
 							.setMessage(
 									"Um die Anzeige zu aktualisieren "
 											+ "ist eine Verbindung zum Internet "
-											+ "n�tig.")
+											+ "nötig.")
 							.setPositiveButton("Ok",
 									new DialogInterface.OnClickListener() {
 										@Override
@@ -160,7 +161,7 @@ public class LoadActivity extends ActionBarActivity {
 	@Override
 	public void onStart() {
 
-		// Log Message
+        // Log Message
 		if (log_enabled) {
 			Log.e(this.getClass().toString(), "onStart");
 		}
@@ -489,9 +490,9 @@ public class LoadActivity extends ActionBarActivity {
 											.setTitle(
 													"Keine Daten im Cache vorhanden")
 											.setMessage(
-													"Um freie Pl�tze anzeigen zu k�nnen "
+													"Um freie Plätze anzeigen zu können "
 															+ "ist eine initiale Verbindung zum Internet "
-															+ "n�tig. Sie werden nun zum Startmenu "
+															+ "nötig. Sie werden nun zum Startmenu "
 															+ "weitergeleitet.")
 											.setPositiveButton(
 													"Ok",
@@ -550,9 +551,9 @@ public class LoadActivity extends ActionBarActivity {
 										.setMessage(
 												"Bei nicht aktiviertem Daten-Cache wird eine bestehende "
 												+ "Internetverbindung zur Darstellung der Funktion News "
-												+ "ben�tigt. Bitte verbinden Sie Ihr Ger�t mit dem Internet "
+												+ "benötigt. Bitte verbinden Sie Ihr Gerät mit dem Internet "
 												+ "und versuchen Sie es erneut. Sie werden nun zum "
-												+ "Startmen� weitergeleitet.")
+												+ "Startmenü weitergeleitet.")
 										.setPositiveButton(
 												"Ok",
 												new DialogInterface.OnClickListener() {
@@ -682,11 +683,24 @@ public class LoadActivity extends ActionBarActivity {
 		if(min<9) {
 			min_string = "0" + String.valueOf(min);
 		}
-		
-		dat = day + "." + month_string + "."
-				+ String.valueOf(year).substring(2) + ", "
-				+ hours + ":" + min_string + " Uhr";
-		
+
+		String lang = getResources().getConfiguration().locale.getDefault().getLanguage();
+		String am_pm = " am";
+
+		if(lang.equals("en")) {
+			dat =  month_string + "/" +day + "/"
+					+ String.valueOf(year).substring(2) + ", "
+					+ hours + ":" + min_string;
+			if(hours>12) {
+				am_pm = " pm";
+			}
+			dat += am_pm;
+
+		} else {
+			dat = day + "." + month_string + "."
+					+ String.valueOf(year).substring(2) + ", "
+					+ hours + ":" + min_string + " Uhr";
+		}
 		return dat;
 	}
 

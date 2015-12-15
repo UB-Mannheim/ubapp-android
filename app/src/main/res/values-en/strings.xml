@@ -38,7 +38,9 @@
     <!-- Activities -->
     <string name="news_activity_caption">News from our Blog</string>
 
-    <string name="free_seats_activity_caption">Load [DATE] [AM_PM]</string>
+    <string name="free_seats_activity_caption">Free Seats</string>
+    <string name="free_seats_activity_caption_section">Section</string>
+    <string name="free_seats_activity_caption_date">[DATE] [AM_PM]</string>
     <string name="free_seats_activity_label_schneckenhof">Schneckenhof - West</string>
     <string name="free_seats_activity_label_learningcenter">Learning Center</string>
     <string name="free_seats_activity_label_schneckenhofsued">Schneckenhof - South</string>
