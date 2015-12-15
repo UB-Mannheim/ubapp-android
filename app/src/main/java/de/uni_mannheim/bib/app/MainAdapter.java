@@ -102,6 +102,8 @@ public class MainAdapter extends BaseAdapter {
 			@Override
 			public void onClick(View v) {
 
+				String lang = context.getResources().getConfiguration().locale.getDefault().getLanguage();
+
 				// Toast.makeText(context, "You Clicked "+result[position],
 				// Toast.LENGTH_LONG).show();
 
@@ -139,7 +141,7 @@ public class MainAdapter extends BaseAdapter {
 						openWebViewWithUrl(
 								context,
 								WebviewActivity.class,
-								"http://www.bib.uni-mannheim.de/mobile/de/1.html",
+								"http://www.bib.uni-mannheim.de/mobile/" + lang + "/1.html",
 								"www");
 					} else {
 
@@ -149,6 +151,15 @@ public class MainAdapter extends BaseAdapter {
 
 				}
 
+
+				String primo_lang = "";
+
+				if (lang.equals("en")) {
+					primo_lang = "&prefLang=en_US";
+				} else {
+					primo_lang = "&prefLang=de_DE";
+				}
+
 				// onClick >> KATALOG
 				// if (result[position].equals("Katalog")) {
 				if (result[position].equals("Primo")) {
@@ -156,7 +167,7 @@ public class MainAdapter extends BaseAdapter {
 						openWebViewWithUrl(
 								context,
 								WebviewActivity.class,
-								"http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE",
+								"http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE"+primo_lang,
 								// "http://primo-test.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE",
 								// "http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_KB",
 								"catalogue");
@@ -175,7 +186,7 @@ public class MainAdapter extends BaseAdapter {
 				}
 
 				// onClick >> FREIE PL�TZE
-				if ( result[position].equals("Freie Plätze") || result[position].equals("Free Seats") ) {
+				if (result[position].equals("Freie Plätze") || result[position].equals("Free Seats")) {
 					openWebViewWithUrl(context, LoadActivity.class, "", "");
 				}
 
