@@ -314,13 +314,9 @@ public class ConfigActivity<E> extends ActionBarActivity {
 				
 				if(restart_app) {
 					new AlertDialog.Builder(ConfigActivity.this)
-					.setTitle("Änderung der Startoptionen")
-					.setMessage(
-							"Um die Änderung der Startoption "
-									+ "wirksam zu machen ist ein Neustart "
-									+ "der App nötig.\n"
-									+ "Wollen Sie die App jetzt neu starten?")
-					.setPositiveButton("Jetzt",
+					.setTitle(getString(R.string.dialog_configActivity_startup_changed__title))
+					.setMessage(getString(R.string.dialog_configActivity_startup_changed__message))
+					.setPositiveButton(getString(R.string.dialog_configActivity_startup_changed__now),
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(
@@ -339,14 +335,14 @@ public class ConfigActivity<E> extends ActionBarActivity {
 									
 									// set message
 									Toast.makeText(ConfigActivity.this,
-											"Starte App neu ..." , Toast.LENGTH_SHORT).show();
+											getString(R.string.dialog_configActivity_restart_app__message), Toast.LENGTH_SHORT).show();
 									
 									// and restart app
 									Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
 								    startActivity(i);
 								}
 							})
-					.setNegativeButton("Später",
+					.setNegativeButton(getString(R.string.dialog_configActivity_startup_changed__later),
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(
@@ -355,7 +351,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 									
 									// set message and
 									Toast.makeText(ConfigActivity.this,
-											"Konfiguration gespeichert" , Toast.LENGTH_SHORT).show();
+											getString(R.string.dialog_configActivity_saved_settings__message), Toast.LENGTH_SHORT).show();
 									// goto upper activity
 									finish();
 								}
@@ -365,7 +361,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 				if(restart_app==false) {
 					// set toast and get back to original activity
 					Toast.makeText(ConfigActivity.this,
-							"Konfiguration gespeichert" , Toast.LENGTH_SHORT).show();
+							getString(R.string.dialog_configActivity_saved_settings__message), Toast.LENGTH_SHORT).show();
 					finish();
 				}
 				

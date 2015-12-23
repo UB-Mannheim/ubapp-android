@@ -97,4 +97,17 @@
     <string name="dialog_newsActivity_connection_error__message">Bei nicht aktiviertem Daten-Cache wird eine bestehende \n Internetverbindung zur Darstellung der Funktion News \n benötigt. Bitte verbinden Sie Ihr Gerät mit dem Internet \n und versuchen Sie es erneut. Sie werden nun zum \n Startmenü weitergeleitet.</string>
     <string name="dialog_newsActivity_connection_error__positive">Ok</string>
 
+    <!-- Dialog_Config -->
+    <string name="dialog_configActivity_startup_changed__title">Änderung der Startoptionen</string>
+    <string name="dialog_configActivity_startup_changed__message">Um die Änderung der Startoption \n wirksam zu machen ist ein Neustart \n der App nötig.\n\n Wollen Sie die App jetzt neu starten?</string>
+    <string name="dialog_configActivity_startup_changed__now">Jetzt</string>
+    <string name="dialog_configActivity_startup_changed__later">Später</string>
+    <string name="dialog_configActivity_restart_app__message">Starte App neu ...</string>
+    <string name="dialog_configActivity_saved_settings__message">Konfiguration gespeichert</string>
+
+    <!-- Dialog_Offline -->
+    <string name="dialog_offlineActivity_connection_error__title">Verbindungsfehler</string>
+    <string name="dialog_offlineActivity_connection_error__message">Bitte verbinden Sie Ihr Gerät mit dem Internet, \n um Webinhalte abrufen zu können. Sie werden nun zum \n Startmenü weitergeleitet.</string>
+    <string name="dialog_offlineActivity_connection_error__positive">Ok</string>
+
 </resources>
