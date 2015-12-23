@@ -132,12 +132,9 @@ public class LoadActivity extends ActionBarActivity {
 
 				if (network_state.equals("false")) {
 					new AlertDialog.Builder(LoadActivity.this)
-							.setTitle("Laden der Daten nicht m�glich")
-							.setMessage(
-									"Um die Anzeige zu aktualisieren "
-											+ "ist eine Verbindung zum Internet "
-											+ "n�tig.")
-							.setPositiveButton("Ok",
+							.setTitle(getString(R.string.dialog_loadActivity_network_state__title))
+							.setMessage(getString(R.string.dialog_loadActivity_network_state__message))
+							.setPositiveButton(getString(R.string.dialog_loadActivity_network_state__positive),
 									new DialogInterface.OnClickListener() {
 										@Override
 										public void onClick(
@@ -168,7 +165,7 @@ public class LoadActivity extends ActionBarActivity {
 		// prepare for a progress bar dialog
 		progressBar = new ProgressDialog(gv.getContext());
 		// progressBar.setCancelable(true);
-		progressBar.setMessage(getString(R.string.alert_loading));
+		progressBar.setMessage(getString(R.string.dialog_loading));
 		// progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		// progressBar.setProgress(0);
 		// progressBar.setMax(100);
@@ -486,15 +483,10 @@ public class LoadActivity extends ActionBarActivity {
 
 									new AlertDialog.Builder(
 											LoadActivity.this)
-											.setTitle(
-													"Keine Daten im Cache vorhanden")
-											.setMessage(
-													"Um freie Pl�tze anzeigen zu k�nnen "
-															+ "ist eine initiale Verbindung zum Internet "
-															+ "n�tig. Sie werden nun zum Startmenu "
-															+ "weitergeleitet.")
+											.setTitle(getString(R.string.dialog_loadActivity_cache_state__title))
+											.setMessage(getString(R.string.dialog_loadActivity_cache_state__message))
 											.setPositiveButton(
-													"Ok",
+													getString(R.string.dialog_loadActivity_cache_state__positive),
 													new DialogInterface.OnClickListener() {
 														@Override
 														public void onClick(
@@ -545,16 +537,10 @@ public class LoadActivity extends ActionBarActivity {
 								progressBar.dismiss();
 
 								new AlertDialog.Builder(LoadActivity.this)
-										.setTitle(
-												"Verbindungsfehler")
-										.setMessage(
-												"Bei nicht aktiviertem Daten-Cache wird eine bestehende "
-												+ "Internetverbindung zur Darstellung der Funktion News "
-												+ "ben�tigt. Bitte verbinden Sie Ihr Ger�t mit dem Internet "
-												+ "und versuchen Sie es erneut. Sie werden nun zum "
-												+ "Startmen� weitergeleitet.")
+										.setTitle(getString(R.string.dialog_loadActivity_connection_error__title))
+										.setMessage(getString(R.string.dialog_loadActivity_connection_error__message))
 										.setPositiveButton(
-												"Ok",
+												getString(R.string.dialog_loadActivity_connection_error__positive),
 												new DialogInterface.OnClickListener() {
 													@Override
 													public void onClick(

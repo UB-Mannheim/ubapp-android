@@ -91,7 +91,7 @@ public class BlogActivity extends ActionBarActivity {
 		// prepare for a progress bar dialog
 		progressBar = new ProgressDialog(gv.getContext());
 		// progressBar.setCancelable(true);
-		progressBar.setMessage(getString(R.string.alert_loading));
+		progressBar.setMessage(getString(R.string.dialog_loading));
 		// progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		// progressBar.setProgress(0);
 		// progressBar.setMax(100);
@@ -305,15 +305,10 @@ public class BlogActivity extends ActionBarActivity {
 
 									new AlertDialog.Builder(
 											BlogActivity.this)
-											.setTitle(
-													"Keine Daten im Cache vorhanden")
-											.setMessage(
-													"Um die Neuigkeiten anzeigen zu k�nnen "
-															+ "ist eine initiale Verbindung zum Internet "
-															+ "n�tig. Sie werden nun zum Startmenu "
-															+ "weitergeleitet.")
+											.setTitle(getString(R.string.dialog_newsActivity_cache_state__title))
+											.setMessage(getString(R.string.dialog_newsActivity_cache_state__message))
 											.setPositiveButton(
-													"Ok",
+													getString(R.string.dialog_newsActivity_cache_state__positive),
 													new DialogInterface.OnClickListener() {
 														@Override
 														public void onClick(
@@ -353,17 +348,10 @@ public class BlogActivity extends ActionBarActivity {
 								progressBar.dismiss();
 
 								new AlertDialog.Builder(BlogActivity.this)
-										.setTitle(
-												"Verbindungsfehler")
-										.setMessage(
-												"Bei nicht aktiviertem Daten-Cache wird eine bestehende " 
-												+ "Internetverbindung zur Darstellung der Funktion Freie "
-												+ "Pl�tze ben�tigt. Bitte verbinden Sie Ihr Ger�t mit dem " 
-												+ "Internet und versuchen Sie es erneut. Sie werden nun "
-												+ "zum Startmen� weitergeleitet."		
-												)
+										.setTitle(getString(R.string.dialog_newsActivity_connection_error__title))
+										.setMessage(getString(R.string.dialog_newsActivity_connection_error__message))
 										.setPositiveButton(
-												"Ok",
+												getString(R.string.dialog_newsActivity_connection_error__positive),
 												new DialogInterface.OnClickListener() {
 													@Override
 													public void onClick(

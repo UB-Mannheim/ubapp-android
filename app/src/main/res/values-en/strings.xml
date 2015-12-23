@@ -73,4 +73,29 @@
     <!-- Other -->
     <string name="home">Home</string>
 
+    <!-- Dialogs -->
+    <string name="dialog_loading">Loading Content</string> <!-- =alert_loading -->
+
+    <!-- Dialog__Seats -->
+    <string name="dialog_loadActivity_network_state__title">Could not load data</string>
+    <string name="dialog_loadActivity_network_state__message">Content can only be updated \n if an internet connection is available.</string>
+    <string name="dialog_loadActivity_network_state__positive">Ok</string>
+
+    <string name="dialog_loadActivity_cache_state__title">No cached data available</string>
+    <string name="dialog_loadActivity_cache_state__message">To show free seats \n an initial internet connection is necessary. \n You will be redirected to the start screen.</string>
+    <string name="dialog_loadActivity_cache_state__positive">Ok</string>
+
+    <string name="dialog_loadActivity_connection_error__title">Connection error</string>
+    <string name="dialog_loadActivity_connection_error__message">If caching is deactivated, \n an existing internet connection is necessary \n to show updated content. \n Please connect your device to the internet \n and try again. \n You will be redirected to the start screen.</string>
+    <string name="dialog_loadActivity_connection_error__positive">Ok</string>
+
+    <!-- Dialog__News -->
+    <string name="dialog_newsActivity_cache_state__title">No cached data available</string>
+    <string name="dialog_newsActivity_cache_state__message">To show news \n an initial internet connection is necessary. \n You will be redirected to the start screen.</string>
+    <string name="dialog_newsActivity_cache_state__positive">Ok</string>
+
+    <string name="dialog_newsActivity_connection_error__title">Connection error</string>
+    <string name="dialog_newsActivity_connection_error__message">If caching is deactivated, \n an existing internet connection is necessary \n to show updated content. \n Please connect your device to the internet \n and try again. \n You will be redirected to the start screen.</string>
+    <string name="dialog_newsActivity_connection_error__positive">Ok</string>
+
 </resources>

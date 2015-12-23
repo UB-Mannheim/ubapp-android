@@ -314,11 +314,11 @@ public class ConfigActivity<E> extends ActionBarActivity {
 				
 				if(restart_app) {
 					new AlertDialog.Builder(ConfigActivity.this)
-					.setTitle("�nderung der Startoptionen")
+					.setTitle("Änderung der Startoptionen")
 					.setMessage(
-							"Um die �nderung der Startoption "
+							"Um die Änderung der Startoption "
 									+ "wirksam zu machen ist ein Neustart "
-									+ "der App n�tig.\n"
+									+ "der App nötig.\n"
 									+ "Wollen Sie die App jetzt neu starten?")
 					.setPositiveButton("Jetzt",
 							new DialogInterface.OnClickListener() {
@@ -346,7 +346,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 								    startActivity(i);
 								}
 							})
-					.setNegativeButton("Sp�ter",
+					.setNegativeButton("Später",
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(
