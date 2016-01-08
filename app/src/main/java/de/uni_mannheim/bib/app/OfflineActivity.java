@@ -63,9 +63,8 @@ public class OfflineActivity extends ActionBarActivity {
 
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		actionBar.setBackgroundDrawable(new ColorDrawable(Color
-				.parseColor("#990000")));
-		actionBar.setTitle("UB Mannheim");
+		actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
+		actionBar.setTitle(R.string.app_name);
 
 		final WebView webView1 = (WebView) findViewById(R.id.webView1);
 
@@ -81,14 +80,10 @@ public class OfflineActivity extends ActionBarActivity {
 		if(network_state.equals("false")) {
 			new AlertDialog.Builder(
 					OfflineActivity.this)
-					.setTitle(
-							"Verbindungsfehler")
-					.setMessage(
-							"Bitte verbinden Sie Ihr Ger�t mit dem Internet, "
-							+ "um Webinhalte abrufen zu k�nnen. Sie werden nun "
-							+ "zum Startmen� weitergeleitet.")
+					.setTitle(getString(R.string.dialog_offlineActivity_connection_error__title))
+					.setMessage(getString(R.string.dialog_offlineActivity_connection_error__message))
 					.setPositiveButton(
-							"Ok",
+							getString(R.string.dialog_offlineActivity_connection_error__positive),
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(

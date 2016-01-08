@@ -37,7 +37,7 @@ public class HelpActivity extends ActionBarActivity {
 		String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
 		int versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
 
-		vcode = "  UB Mannheim, Version: " + versionName + " (" + String.valueOf(versionCode) + ")";
+		vcode = getString(R.string.app_name) + ", Version: " + versionName + " (" + String.valueOf(versionCode) + ")";
 
 		return vcode;
 	}

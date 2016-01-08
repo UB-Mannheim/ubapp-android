@@ -74,4 +74,42 @@
     <!-- Other -->
     <string name="home">Home</string>
 
+    <!-- Dialogs -->
+    <string name="dialog_loading">Lade Inhalte</string> <!-- =alert_loading -->
+
+    <!-- Dialog_Seats -->
+    <string name="dialog_loadActivity_network_state__title">Laden der Daten nicht möglich</string>
+    <string name="dialog_loadActivity_network_state__message">Um die Anzeige zu aktualisieren \n ist eine Verbindung zum Internet \n nötig.</string>
+    <string name="dialog_loadActivity_network_state__positive">Ok</string>
+
+    <string name="dialog_loadActivity_cache_state__title">Keine Daten im Cache vorhanden</string>
+    <string name="dialog_loadActivity_cache_state__message">Um freie Plätze anzeigen zu können \n ist eine initiale Verbindung zum Internet \n nötig. Sie werden nun zum Startmenü \n weitergeleitet.</string>
+    <string name="dialog_loadActivity_cache_state__positive">Ok</string>
+
+    <string name="dialog_loadActivity_connection_error__title">Verbindungsfehler</string>
+    <string name="dialog_loadActivity_connection_error__message">Bei nicht aktiviertem Daten-Cache wird eine bestehende \n Internetverbindung zur Darstellung der Funktion Freie Plätze \n benötigt. Bitte verbinden Sie Ihr Gerät mit dem Internet \n und versuchen Sie es erneut. Sie werden nun zum \n Startmenü weitergeleitet.</string>
+    <string name="dialog_loadActivity_connection_error__positive">Ok</string>
+
+    <!-- Dialog_News -->
+    <string name="dialog_newsActivity_cache_state__title">Keine Daten im Cache vorhanden</string>
+    <string name="dialog_newsActivity_cache_state__message">Um Neuigkeiten anzeigen zu können \n ist eine initiale Verbindung zum Internet \n nötig. Sie werden nun zum Startmenü \n weitergeleitet.</string>
+    <string name="dialog_newsActivity_cache_state__positive">Ok</string>
+
+    <string name="dialog_newsActivity_connection_error__title">Verbindungsfehler</string>
+    <string name="dialog_newsActivity_connection_error__message">Bei nicht aktiviertem Daten-Cache wird eine bestehende \n Internetverbindung zur Darstellung der Funktion News \n benötigt. Bitte verbinden Sie Ihr Gerät mit dem Internet \n und versuchen Sie es erneut. Sie werden nun zum \n Startmenü weitergeleitet.</string>
+    <string name="dialog_newsActivity_connection_error__positive">Ok</string>
+
+    <!-- Dialog_Config -->
+    <string name="dialog_configActivity_startup_changed__title">Änderung der Startoptionen</string>
+    <string name="dialog_configActivity_startup_changed__message">Um die Änderung der Startoption \n wirksam zu machen ist ein Neustart \n der App nötig.\n\n Wollen Sie die App jetzt neu starten?</string>
+    <string name="dialog_configActivity_startup_changed__now">Jetzt</string>
+    <string name="dialog_configActivity_startup_changed__later">Später</string>
+    <string name="dialog_configActivity_restart_app__message">Starte App neu ...</string>
+    <string name="dialog_configActivity_saved_settings__message">Konfiguration gespeichert</string>
+
+    <!-- Dialog_Offline -->
+    <string name="dialog_offlineActivity_connection_error__title">Verbindungsfehler</string>
+    <string name="dialog_offlineActivity_connection_error__message">Bitte verbinden Sie Ihr Gerät mit dem Internet, \n um Webinhalte abrufen zu können. Sie werden nun zum \n Startmenü weitergeleitet.</string>
+    <string name="dialog_offlineActivity_connection_error__positive">Ok</string>
+
 </resources>
