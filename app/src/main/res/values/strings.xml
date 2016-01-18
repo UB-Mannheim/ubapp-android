@@ -1,4 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- string name="app_name">UniBIB Mannheim</string -->
+    <!-- string name="app_name">BIBService Mannheim</string -->
+    <string name="app_name">Mannheim University Library</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_webview">Webview</string>
+    <string name="title_activity_grid">MainActivity</string>
+    <string name="title_activity_list_file">ListFileActivity</string>
+    <string name="title_activity_empty">EmptyActivity</string>
+    <string name="title_activity_http">HttpActivity</string>
+    <string name="title_activity_load">LoadActivity</string>
+    <string name="title_activity_grid_main">GridMainActivity</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_offline">OfflineActivity</string>
+    <string name="title_activity_blog">BlogActivity</string>
+    <string name="title_activity_progress_dialog">ProgressDialog</string>
+    <string name="title_activity_config">ConfigActivity</string>
+    <string name="title_activity_test_dbactivity2">TestDBActivity2</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="title_activity_start_up">StartUp</string>
+
+    <!-- Menu and Bars -->
+    <string name="status_bar_title">Mannheim University Library</string>
+    <string name="alert_loading">Loading Content</string>
+
+    <!-- General -->
+    <string name="__startup__">Startup Screen</string>
+    <string name="__www__">Website</string>
+    <string name="__primo__">Primo</string>
+    <string name="__news__">News</string>
+    <string name="__seats__">Free Seats</string>
+    <string name="__config__">Settings</string>
+    <string name="__help__">Help</string>
+
+    <!-- Activities -->
+    <string name="news_activity_caption">News from our Blog</string>
+
+    <string name="free_seats_activity_caption">Free Seats</string>
+    <string name="free_seats_activity_caption_section">Section</string>
+    <string name="free_seats_activity_caption_date">[DATE] [AM_PM]</string>
+    <string name="free_seats_activity_label_schneckenhof">Schneckenhof - West</string>
+    <string name="free_seats_activity_label_learningcenter">Learning Center</string>
+    <string name="free_seats_activity_label_schneckenhofsued">Schneckenhof - South</string>
+    <string name="free_seats_activity_label_ehrenhof">Ehrenhof (Hasso-Plattner-Library)</string>
+    <string name="free_seats_activity_label_a3">A3 Library</string>
+    <string name="free_seats_activity_label_a5">A5 Library</string>
+
+    <string name="config_activity_caption">Settings</string>
+    <string name="config_activity_label_cache">Cache</string>
+    <string name="config_activity_switch_cache_on">On</string>
+    <string name="config_activity_switch_cache_off">Off</string>
+    <string name="config_activity_label_startup">Start Library App with</string>
+    <string name="config_activity_label_news">News Entry Count</string>
+    <string name="config_activity_button_save">Save</string>
+
+    <string name="help_activity_caption">How to use your app</string>
+    <string name="help_activity_label_www_description">Opens up the mobile view of our website, containing comprehensive information about the university library.</string>
+    <string name="help_activity_label_primo_description">With the mobile view of our library catalogue, you can use all common functions that are available in the classic view: search, (interlibray) loan and managing your account information.</string>
+    <string name="help_activity_label_news_description">Showing the 5 latest posts from our blog. The count number can be set in the configuration menu.</string>
+    <string name="help_activity_label_free_seats_description">A traffic light system informing about the load and availibility of free seats in the different library sections.</string>
+    <string name="help_activity_label_config_description">Additionally the following settings can be changed.</string>
+    <string name="help_activity_label_config_description_cache">The activation of the cache function creates a database for local storage of the most recently downloaded data for the News and Freie Plätze. The stored data is displayed when no Internet access is available. Disabling this function will delete the created database. By default, caching is disabled, in this case all data must be accessed online.</string>
+    <string name="help_activity_label_config_description_news">Determine how many posts from the news-blog "Aktuelles" is displayed: 5 (Default), 10 and 15</string>
+    <string name="help_activity_label_config_description_startup">Select your personal startup function: Startmenü (Default) , Website, Primo, News, Freie Plätze</string>
+    <string name="help_activity_label_config_description_help">An integrated Help completes the app.</string>
+
+
+    <!-- Speech Input Primo -->
+    <string name="speech_prompt">Nennen Sie Ihren Suchbegriff&#8230;</string>
+    <string name="speech_not_supported">Entschuldigung! Ihr Gerät unterstützt keine Spracheingaben.</string>
+
+    <!-- Other -->
+    <string name="home">Home</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_loading">Loading Content</string> <!-- =alert_loading -->
+
+    <!-- Dialog__Seats -->
+    <string name="dialog_loadActivity_network_state__title">Could not load data</string>
+    <string name="dialog_loadActivity_network_state__message">Content can only be updated \n if an internet connection is available.</string>
+    <string name="dialog_loadActivity_network_state__positive">Ok</string>
+
+    <string name="dialog_loadActivity_cache_state__title">No cached data available</string>
+    <string name="dialog_loadActivity_cache_state__message">To show free seats \n an initial internet connection is necessary. \n You will be redirected to the start screen.</string>
+    <string name="dialog_loadActivity_cache_state__positive">Ok</string>
+
+    <string name="dialog_loadActivity_connection_error__title">Connection error</string>
+    <string name="dialog_loadActivity_connection_error__message">If caching is deactivated, \n an existing internet connection is necessary \n to show updated content. \n Please connect your device to the internet \n and try again. \n You will be redirected to the start screen.</string>
+    <string name="dialog_loadActivity_connection_error__positive">Ok</string>
+
+    <!-- Dialog__News -->
+    <string name="dialog_newsActivity_cache_state__title">No cached data available</string>
+    <string name="dialog_newsActivity_cache_state__message">To show news \n an initial internet connection is necessary. \n You will be redirected to the start screen.</string>
+    <string name="dialog_newsActivity_cache_state__positive">Ok</string>
+
+    <string name="dialog_newsActivity_connection_error__title">Connection error</string>
+    <string name="dialog_newsActivity_connection_error__message">If caching is deactivated, \n an existing internet connection is necessary \n to show updated content. \n Please connect your device to the internet \n and try again. \n You will be redirected to the start screen.</string>
+    <string name="dialog_newsActivity_connection_error__positive">Ok</string>
+
+    <!-- Dialog_Config -->
+    <string name="dialog_configActivity_startup_changed__title">Changed startup settings</string>
+    <string name="dialog_configActivity_startup_changed__message">To change startup setting \n please restart the app.\n\n Restart app now?</string>
+    <string name="dialog_configActivity_startup_changed__now">Now</string>
+    <string name="dialog_configActivity_startup_changed__later">Later</string>
+    <string name="dialog_configActivity_restart_app__message">Restarting app ...</string>
     <string name="dialog_configActivity_saved_settings__message">Settings saved</string>
+
+    <!-- Dialog_Offline -->
+    <string name="dialog_offlineActivity_connection_error__title">Connection error</string>
+    <string name="dialog_offlineActivity_connection_error__message">Please connect your device to the internet \n to browse web contetn. You will be \n redirected to the start screen.</string>
+    <string name="dialog_offlineActivity_connection_error__positive">Ok</string>
+
 </resources>
