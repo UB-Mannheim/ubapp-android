@@ -36,7 +36,7 @@
     <string name="__help__">Help</string>
 
     <!-- Activities -->
-    <string name="news_activity_caption">News from our Blog</string>
+    <string name="news_activity_caption">Library News</string>
 
     <string name="free_seats_activity_caption">Free Seats</string>
     <string name="free_seats_activity_caption_section">Section</string>

@@ -27,6 +27,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 public class LoadAdapter extends BaseAdapter {
 
 	private boolean log_enabled = false;
@@ -92,7 +93,25 @@ public class LoadAdapter extends BaseAdapter {
 		holder.tv_load.setText(addEmptyChars(loads[position]) + " %  ");
 		holder.iv_signal.setBackgroundResource(Integer
 				.valueOf(resids[position]));
-		holder.tv_name.setText(names[position]);
+		// holder.tv_name.setText(names[position]);
+		// Log.v("Logging", "Position: " + position + " Name: " + names[position]);
+
+		switch(position) {
+			case 0: holder.tv_name.setText(R.string.free_seats_activity_label_schneckenhof);
+				break;
+			case 1: holder.tv_name.setText(R.string.free_seats_activity_label_learningcenter);
+				break;
+			case 2: holder.tv_name.setText(R.string.free_seats_activity_label_schneckenhofsued);
+				break;
+			case 3: holder.tv_name.setText(R.string.free_seats_activity_label_ehrenhof);
+				break;
+			case 4: holder.tv_name.setText(R.string.free_seats_activity_label_a3);
+				break;
+			case 5: holder.tv_name.setText(R.string.free_seats_activity_label_a5);
+				break;
+			default: holder.tv_name.setText("undefined");
+				break;
+		}
 
 		return rowView;
 	}

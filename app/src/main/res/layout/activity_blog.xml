@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:background="#efefef"
             android:padding="10dp"
-            android:text="Aktuelles aus unserem Blog"
+            android:text="@string/news_activity_caption"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#333333" />
 
