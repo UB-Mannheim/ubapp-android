@@ -142,6 +142,7 @@ public class MainAdapter extends BaseAdapter {
 								context,
 								WebviewActivity.class,
 								"http://www.bib.uni-mannheim.de/mobile/" + lang + "/1.html",
+								// "http://anyplace.cs.ucy.ac.cy/viewer/",
 								"www");
 					} else {
 

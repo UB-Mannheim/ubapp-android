@@ -198,7 +198,7 @@ public class WebviewActivity extends ActionBarActivity {
                 					"primo_library/libweb/action/search.do?" +
                 					"&vl%28freeText0%29="+searchTerm +
                 					"&fn=search&vid=MAN_MOBILE&voiceInput=TRUE");
-                	
+
                 	// watch out for primo server logs in 
                 	// /exlibris/primo/p4_1/ng/primo/home/profile/search/log/localhost_access_log.2015-06-08.txt
                 
