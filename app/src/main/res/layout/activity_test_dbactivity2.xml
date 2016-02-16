@@ -50,5 +50,5 @@
         android:layout_alignRight="@+id/textView1"
         android:layout_centerVertical="true"
         android:text="TextView" />
-    
+
 </RelativeLayout>
