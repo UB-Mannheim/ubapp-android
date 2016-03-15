@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -29,24 +30,8 @@ import android.util.Log;
 public class DataCollector {
 
 	private boolean log_enabled = false;
-
 	private String bnews[][];
 
-	/*
-	 * Klasse zum Sammeln der anzuzeigenden Daten News Online [OK] / News Lokal
-	 * [OK] Load Online [OK] / Load Lokal [OK]
-	 * 
-	 * Die R�ckgabe soll als News Liste und [String[] --> OK, wird erwartet]
-	 * Load Liste [OK] m�glich sein
-	 * 
-	 * Funktionen :: Auslesen von Online Sourcen / Datenbanken / Textdateien >>
-	 * using BlogParser and URLParser [OK]
-	 * 
-	 * Entgegennehmen von String[][] [OK] / List<T> (<News> und <Load>) [OK]
-	 * 
-	 * Abgleichen der Inhalte >> Zur Verfuegung stellen der "richtigen" Daten
-	 * [OK]
-	 */
 	public DataCollector() {
 
 	}
@@ -86,13 +71,12 @@ public class DataCollector {
 		News LatestDBNews = dbNews.get(0);
 		int dbMaxId = LatestDBNews.getPostId();
 
-		// IF CONFIG == CACHE_ACTIVE
+		// If Config == CACHE_ACTIVE
 
 		if ((dsMaxId == dbMaxId) && (dsNews.size() == dbNews.size())) {
 
-			// do nothing, all news up to date
-
-			// show entries from db
+			// Do Nothing, all News up to date
+			// Show Entries from DB
 
 			// Log Message
 			if (log_enabled) {
@@ -100,13 +84,9 @@ public class DataCollector {
 			}
 
 		} else {
-/*
-			Log.e("BlogActivity", "NEWS Update " + "\n >> dbMax:" + dbMaxId
-					+ "\n >> dsMax:" + dsMaxId);
-*/
-			// check for new entries
 
-			// update database
+			// Check for new Entries
+			// Update Database
 
 			dbh.deleteNews();
 
@@ -122,7 +102,7 @@ public class DataCollector {
 				}
 			}
 
-			// show entries
+			// Show Entries
 
 			List<News> dbNewsNeu = dbh.getAllNews();
 
@@ -137,21 +117,6 @@ public class DataCollector {
 			}
 
 		}
-
-		// String[] captionList = new String[5];
-		// String[] contentList = new String[5];
-
-		// captionList[0] = bnews[0][0];
-		// captionList[1] = bnews[1][0];
-		// captionList[2] = bnews[2][0];
-		// captionList[3] = bnews[3][0];
-		// captionList[4] = bnews[4][0];
-
-		// contentList[0] = bnews[0][3];
-		// contentList[1] = bnews[1][3];
-		// contentList[2] = bnews[2][3];
-		// contentList[3] = bnews[3][3];
-		// contentList[4] = bnews[4][3];
 
 		String[] captionList = new String[news_range];
 		String[] contentList = new String[news_range];
@@ -179,8 +144,7 @@ public class DataCollector {
 
 		// Log Message
 		if (log_enabled) {
-			Log.e("BlogActivity - getNewsFromWWW",
-					"DEBUG dsNews ---------------------------");
+			Log.e("BlogActivity", "getNewsFromWWW -- DEBUG dsNews ---");
 			for (News n : dsNews) {
 				Log.e("BlogActivity", n.getId() + " - " + n.getPostId() + " - "
 						+ n.getTitle().substring(0, 20));
@@ -197,8 +161,7 @@ public class DataCollector {
 
 		// Log Message
 		if (log_enabled) {
-			Log.e("BlogActivity - getNewsFromDB",
-					"DEBUG dbNews ---------------------------");
+			Log.e("BlogActivity ", "getNewsFromDB --- DEBUG dbNews ---");
 			for (News n : dbNews) {
 				Log.e("BlogActivity", n.getId() + " - " + n.getPostId() + " - "
 						+ n.getTitle().substring(0, 20));
@@ -212,9 +175,6 @@ public class DataCollector {
 			String network_state, String db_mode_on, DatabaseHelper dbh,
 			int news_range, List<News> listWWW, List<News> listDB) {
 
-		// http://www.tutorialspoint.com/android/android_network_connection.htm
-		// http://codereview.stackexchange.com/questions/45819/httpurlconnection-response-code-handling
-
 		List<String[]> newsList = new ArrayList<String[]>();
 
 		News LatestNews;
@@ -223,7 +183,7 @@ public class DataCollector {
 		int dsMaxId = 0;
 		int dbMaxId = 0;
 
-		// IF ONLINE (NETWORK ALIVE)
+		// If Online == NETWORK ALIVE
 		if (network_state.equals("online")) {
 			// Log Message
 			if (log_enabled) {
@@ -235,7 +195,7 @@ public class DataCollector {
 				dsMaxId = LatestNews.getPostId();
 			}
 
-			// IF DB ACTIVE
+			// If DB active
 			if (db_mode_on.equals("true")) {
 
 				// Log Message
@@ -256,7 +216,7 @@ public class DataCollector {
 
 				} else {
 
-					// if news history timestamp > x minutes update
+					// If News History Timestamp > x minutes, start update
 
 					// Log Message
 					if (log_enabled) {
@@ -294,7 +254,7 @@ public class DataCollector {
 
 			} else {
 
-				// DATABASE INACTIVE
+				// If Database inactive
 				// Log Message
 				if (log_enabled) {
 					Log.e("DataCollector", "Database Status: no Database");
@@ -315,14 +275,14 @@ public class DataCollector {
 
 		} else {
 
-			// NETWORK OFFLINE
+			// If Network offline
 
 			// Log Message
 			if (log_enabled) {
 				Log.e("DataCollector", "Network Status: Offline");
 			}
 
-			// IF DB ACTIVE
+			// If Database active
 			if (db_mode_on.equals("true")) {
 				// Log Message
 				if (log_enabled) {
@@ -333,8 +293,9 @@ public class DataCollector {
 
 					List<News> listDB_new = dbh.getAllNews();
 
-					// Wenn Daten aus DB kleiner als Mindestanzahl
-					// funktioniert der Ablgeich im Offline Modus nicht
+                    // FixMe!
+					// If data from Database smaller than minimum count
+					// there's no update in offline mode possible yet
 
 					String[] captionList = new String[news_range];
 					String[] contentList = new String[news_range];
@@ -391,7 +352,7 @@ public class DataCollector {
 			Thread t = new Thread(urlp);
 			t.start();
 			while (!(t.getState().toString().equals("TERMINATED"))) {
-				// wait for completion
+				// Wait for completion
 			}
 
 			percent = urlp.load;
@@ -408,12 +369,8 @@ public class DataCollector {
 
 		// return dsLoad;
 
-		/*
-		 * DEBUG
-		 */
 
-		// Read DS
-
+		// Reading Dataset
 		// Log Message
 		if (log_enabled) {
 			Log.e("LoadActivity", "DEBUG dsLoad ---------------------------");
@@ -423,8 +380,7 @@ public class DataCollector {
 			}
 		}
 
-		// Read DB
-
+		// Read Database
 		List<Load> dbLoad = dbh.getAllLoads();
 
 		// Log Message
@@ -436,9 +392,9 @@ public class DataCollector {
 			}
 		}
 
-		// Update DB
+		// Update Database
 
-		// if (last_update > 60s)
+		// If (last_update > 60s)
 		// <example>
 
 		for (int i = 0; i < dbLoad.size(); i++) {
@@ -546,7 +502,7 @@ public class DataCollector {
 
 		List<Load> loadList = new ArrayList<Load>();
 
-		// if Online
+		// If Online
 		if (network_state.equals("online")) {
 			
 			if (log_enabled) {
@@ -554,14 +510,14 @@ public class DataCollector {
 			}
 			
 			if (db_mode_on.equals("true")) {
-				// if db active
+				// Ff Database active
 
 				// Log Message
 				if (log_enabled) {
 					Log.e("DataCollector", "Database Status: existing");
 				}
 
-				// update db and return loadDB
+				// Update Database and return loadDB
 				for (int i = 0; i < listDB.size(); i++) {
 					Load temp = new Load();
 					temp = listDB.get(i);
@@ -576,7 +532,7 @@ public class DataCollector {
 				 */
 
 			} else {
-				// if db inactive
+				// If Database inactive
 
 				// Log Message
 				if (log_enabled) {
@@ -594,7 +550,7 @@ public class DataCollector {
 			}
 
 		} else {
-			// if Offline
+			// If Offline
 
 			// Log Message
 			if (log_enabled) {
@@ -602,17 +558,17 @@ public class DataCollector {
 			}
 
 			if (db_mode_on.equals("true")) {
-				// if db active
+				// If Database active
 
 				// Log Message
 				if (log_enabled) {
 					Log.e("DataCollector", "Database Status: existing");
 				}
-				// retunr loadDB
+				// return loadDB
 				loadList = listDB;
 
 			} else {
-				// if db inactive
+				// If Database inactive
 
 				// Log Message
 				if (log_enabled) {
@@ -620,7 +576,7 @@ public class DataCollector {
 				}
 
 				loadList = null;
-				// open offline activity
+				// Start Offline activity
 				// context.startActivity(new Intent(context,
 				// OfflineActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 			}
@@ -648,7 +604,8 @@ public class DataCollector {
 			news_item.setId(id);
 			news_item.setTitle(n[0]);
 			news_item.setUrl(n[1]);
-			// news_item.?setDate(n[2]); // Datum nicht in DB implementiert
+            // Date not implemented in Database yet
+			// news_item.?setDate(n[2]);
 			news_item.setDescription(n[3]);
 			news_item.setPostId(Integer.valueOf(n[4]));
 
@@ -662,14 +619,14 @@ public class DataCollector {
 
 	public <T> List<T> getData(String[][] list) {
 
-		// temporarily inner getNews() / getLoad()
+		// Temporarily inner getNews() / getLoad()
 
 		return null;
 	}
 
 	public <T> List<T> compareData(List<T> list_online, List<T> list_local) {
 
-		// temporarily inner getNews() / getLoad()
+		// Temporarily inner getNews() / getLoad()
 
 		return null;
 	}

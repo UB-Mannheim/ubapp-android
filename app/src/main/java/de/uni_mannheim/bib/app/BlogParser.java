@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -19,7 +20,6 @@
 package de.uni_mannheim.bib.app;
 
 import java.io.IOException;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -32,10 +32,9 @@ public class BlogParser {
 	private boolean log_enabled = false;
 
 	protected String url = "http://blog.bib.uni-mannheim.de/Aktuelles/";
+	// Alternate URL with lookup in Category 4
 	// protected String url = "http://blog.bib.uni-mannheim.de/Aktuelles/?cat=4";
 	protected String[][] news;
-
-	// protected int max_range = 0;
 	
 	public BlogParser() {
 
@@ -45,42 +44,6 @@ public class BlogParser {
 		}
 
 	}
-	/*
-	public int getMaxRange(String url, int range) {
-		
-		// if internet connection available try
-		try {
-			
-			Document doc;
-			int max_range = 0;
-			
-			String[] atitles = new String[range];
-			
-			doc = Jsoup.connect(url).get();
-
-			// define max range if range < 15
-			int r = 0;
-			Elements elements = doc.select("h2.entry-title a[href]");
-			
-			for (Element elm : elements) {
-				if (r < range) {
-					atitles[r] = elm.text();
-
-					max_range++;
-					Log.e("MAX_RANGE : ", String.valueOf(max_range));
-				}
-				r++;
-			}
-			
-			range = max_range;
-			Log.e("RANGE : ", String.valueOf(range));
-		} catch (IOException e) {
-			max_range = 5;
-		}
-		
-		return max_range;
-	}
-	*/
 
 	public String[][] getBlogEntries(String url, int range) {
 
@@ -97,7 +60,7 @@ public class BlogParser {
 		String[] acontents = new String[range];
 		// String[] apostids = new String[range];
 
-		// if internet connection available try
+		// If Internet Connection available, try
 		try {
 
 			doc = Jsoup.connect(url).get();
@@ -138,12 +101,12 @@ public class BlogParser {
 			for (Element content : contents) {
 				if (i < range) {
 					
-						// if textlength > 200 cut
+						// If TextLength > 200 cut
 						if(content.text().length()>=200) {
 							acontents[i] = content.text().substring(0, 200) + "... \n"
 									+ alinks[i];
 						} else {
-						// show all
+						// Show all
 							acontents[i] = content.text() + "... \n"
 									+ alinks[i];
 						}
@@ -155,6 +118,7 @@ public class BlogParser {
 				i++;
 			}
 
+			// If apostids[] defined
 			/*
 			 * i=0; Elements ids = doc.select("div.content"); for (Element id :
 			 * ids) { if(i<5) { apostids[i]=id.text(); } i++; }

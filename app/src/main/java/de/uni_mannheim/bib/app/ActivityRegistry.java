@@ -3,8 +3,9 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
- * 
- * 
+ *    Last modified on 2016-03-15
+ *
+ *
  * This is free software licensed under the terms of the GNU GPL, 
  * version 3, or (at your option) any later version.
  * See <http://www.gnu.org/licenses/> for more details.
@@ -27,8 +28,6 @@ import android.app.Activity;
 
 public class ActivityRegistry {
 
-	// http://codekicker.de/fragen/Android-App-beenden
-	
 	private static List<Activity> _activities;
 
 	  public static void register(Activity activity) {

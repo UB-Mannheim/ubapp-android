@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -10,8 +11,10 @@
  * See <http://www.gnu.org/licenses/> for more details.
  *
  *
- * Future version of ConfigActivity
- * 
+ * Meant to be a future version of ConfigActivity
+ *
+ * (INACTIVE)
+ *
  * App configuration, possible choices
  * 		Caching (on/off)
  * 		Count of News entries (5/10/15)

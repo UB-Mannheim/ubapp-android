@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -26,7 +27,6 @@ import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -57,12 +57,12 @@ public class WebviewActivity extends ActionBarActivity {
     // Logs
 	private boolean log_enabled = false;
 	
-	// maybe integrate onStart action / threads ?
+	// Maybe integrate onStart action / threads ?
 	
 	WebView webView;
 	ProgressDialog progressBar;
 
-	// define variables for transferred content
+	// Define variables for transferred content
 	protected String url;
 	protected String action;
 	protected int height;
@@ -71,8 +71,8 @@ public class WebviewActivity extends ActionBarActivity {
 
 	public String state = "";
 
-	// for customized and consistent UI (Android 2.3 - 4.x)
-	// always extend ActionBarActivity
+	// For customized and consistent UI (Android 2.3 - 4.x)
+	// Always extend ActionBarActivity
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -83,16 +83,15 @@ public class WebviewActivity extends ActionBarActivity {
 			Log.e( this.getClass().getName().toUpperCase().toString(), " ... LOADED");
 		}
 		
-		// screen layout for main activity
+		// Screen Layout for Main Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_webview);
 
-		// customized actionbar (Color, Title, Back Button)
+		// Customized Actionbar (Color, Title, Back Button)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
 		actionBar.setTitle(R.string.app_name);
-
 
 
 		// Speech Input
@@ -114,35 +113,33 @@ public class WebviewActivity extends ActionBarActivity {
         // Generally hide Speech Input
      	btnSpeak.setVisibility(View.INVISIBLE);
 		
-		// get common parameters
+		// Get common Parameters
 		url = getIntent().getExtras().getString("url");
 		action = getIntent().getExtras().getString("action");
 		
-		// get and set webview 
+		// Get and set Webview
 		webView = (WebView) findViewById(R.id.webView1);
 		WebSettings wset = webView.getSettings();
 		wset.setJavaScriptEnabled(true);
 
-		// set progressbar
+		// Set ProgressBar
 		progressBar = new ProgressDialog(webView.getContext());
 		progressBar.setMessage(getString(R.string.alert_loading));
 		progressBar.show();
 
-		// create webclient
+		// Create Webclient
 		webView.setWebViewClient(new myWebClient());
 		
-		// reload the old webview content
+		// Reload the old Webview content
 		if (savedInstanceState != null) {
 			webView.restoreState(savedInstanceState);
 		} else {
 			webView.loadUrl(url);
 		}
 
-		// further information, alternative solution:
-		// http://twigstechtips.blogspot.de/2013/08/android-retain-instance-of-webview.html
+		// Further information, alternative solution:
+		// Retain Link
 
-		
-					
 	}
 	
 	// Speech Input
@@ -184,8 +181,7 @@ public class WebviewActivity extends ActionBarActivity {
                 if(searchTerm != "") {
                 	searchTerm = result.get(0);
                 
-                	// "http://stackoverflow.com/questions/13269059/" +
-                	// "open-url-in-webview-in-android"
+                	// Open URL Link
                 	
                 	webView = (WebView) findViewById(R.id.webView1);
                 	webView.getSettings().setJavaScriptEnabled(true);
@@ -200,7 +196,7 @@ public class WebviewActivity extends ActionBarActivity {
                 					"&fn=search&vid=MAN_MOBILE&voiceInput=TRUE");
 
                 	// watch out for primo server logs in 
-                	// /exlibris/primo/p4_1/ng/primo/home/profile/search/log/localhost_access_log.2015-06-08.txt
+                	// Primo Path
                 
                 }
                 
@@ -211,14 +207,14 @@ public class WebviewActivity extends ActionBarActivity {
         }
     }
 
-	// preventing reload of webview on rotate
+	// Preventing Reload of Webview on rotate
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		webView.saveState(outState);
 	}
 
-	// overriding back-button within webview as "browser-back",
+	// Overriding back-button within webview as "browser-back",
 	// NOT last_task in stack
 	// http://stackoverflow.com/questions/6077141/android-webview-how-to-code-the-back-button
 	/*
@@ -249,10 +245,10 @@ public class WebviewActivity extends ActionBarActivity {
 			Log.e(this.getClass().toString(),"called");
 		}
 		
-		// actionbar alternative menu only in webview->website
+		// Actionbar alternative menu only in webview->website
 		if (action.equals("www")) {
 
-			// inflate the menu (adds items to the action bar if it is present)
+			// Inflate the menu (adds items to the action bar if it is present)
 			MenuInflater inflater = getMenuInflater();
 			inflater.inflate(R.menu.www_activity_actions, menu);
 			
@@ -267,7 +263,7 @@ public class WebviewActivity extends ActionBarActivity {
 			MenuInflater inflater = getMenuInflater();
 			inflater.inflate(R.menu.main_activity_actions, menu);
 			
-			// http://www.techrepublic.com/article/pro-tip-use-a-custom-layout-to-badge-androids-action-bar-menu-items/
+			// Use Custom Layout Link
 		}
 
 		return super.onCreateOptionsMenu(menu);
@@ -346,7 +342,7 @@ public class WebviewActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	// rewrite html menus
+	// Rewrite HTML Menus
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
@@ -373,14 +369,14 @@ public class WebviewActivity extends ActionBarActivity {
 			menu.findItem(R.id.action_wwwContact).setTitle("Contact");
 		}
 
-		// depending on your conditions, either enable/disable
+		// Depending on your conditions, either enable/disable
 		// item.setEnabled(false);
 		super.onPrepareOptionsMenu(menu);
 
 		return true;
 	}
 
-	// check language
+	// Check Language
 
 	public String getLang() {
 
@@ -394,7 +390,7 @@ public class WebviewActivity extends ActionBarActivity {
 			Log.e(this.getClass().toString(), ">>" + webView.getTitle()+"<<");
 		}
 		
-		// if webview exists (has a title)
+		// If Webview exists (has a title)
 		if (webView.getTitle() != null) {
 
 			if (webView.getUrl().contains("/en/")) {
@@ -407,7 +403,7 @@ public class WebviewActivity extends ActionBarActivity {
 		return lang;
 	}
 
-	// rewrite menu urls (lang)
+	// Rewrite Menu URLs (lang)
 	public void openURLsFromCustomMenuEntry(int id) {
 
 		// Log Message
@@ -446,13 +442,13 @@ public class WebviewActivity extends ActionBarActivity {
 
 	public class myWebClient extends WebViewClient {
 
-		// possible scaling of contents (as above)
-		// // webView.setInitialScale(1);
+		// Possible scaling of contents (as above)
+		    // webView.setInitialScale(1);
 		// webView.getSettings().setLoadWithOverviewMode(true);
-		// // webView.getSettings().setUseWideViewPort(true);
-		// // webView.getSettings().setJavaScriptEnabled(true);
+            // webView.getSettings().setUseWideViewPort(true);
+            // webView.getSettings().setJavaScriptEnabled(true);
 
-		// http://stackoverflow.com/questions/3916330/android-webview-webpage-should-fit-the-device-screen
+		// android-webview-webpage Link
 
 		@Override
 		public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -478,11 +474,11 @@ public class WebviewActivity extends ActionBarActivity {
 			webView.setVisibility(View.VISIBLE);
 
 						
-			// DOM Manipulation after loading webview contents
+			// DOM Manipulation after loading Webview contents
 			
-			// layout changes in website context
+			// Layout changes in Website context
 			
-				// hiding mobile trailer
+				// Hiding Mobile Trailer
 	
 				// if(url.contains("mobile")) {
 				if (action.equals("www")) {
@@ -496,7 +492,7 @@ public class WebviewActivity extends ActionBarActivity {
 				}
 	
 				
-			// layout changes in catalogue context
+			// Layout Changes in Catalogue Context
 	
 				// if(url.contains("primo_library")) {
 				if (action.equals("catalogue")
@@ -509,8 +505,7 @@ public class WebviewActivity extends ActionBarActivity {
 					} else {
 						btnSpeak.setVisibility(View.VISIBLE);
 					}
-					
-					
+
 					// document.getElementById('katalog').style.display = 'none';
 					// document.getElementById('katalogUBSchriftzug').style.display
 					// = 'none';
@@ -533,14 +528,15 @@ public class WebviewActivity extends ActionBarActivity {
 				
 			// ATTENTION
 			// code behind large comment !!!
-					
+
+            // FixMe
 			/**
 			 * 
 			 * old functions, should better be native activities and no longer
 			 * webviews
 			 * 
-			 * 
-			 * // hide mobile header and change css in navigation context
+			 * //////////////////////////////////////
+			 * // CHANGE CSS IN NAVIGATION CONTEXT //
 			 * 
 			 * // if(url.contains("dreidplan")) {
 			 * if(action.equals("navigation")) {
@@ -571,16 +567,17 @@ public class WebviewActivity extends ActionBarActivity {
 			 * 
 			 * }
 			 * 
-			 * 
-			 * // change css in chat context
+			 * ////////////////////////////////
+			 * // CHANGE CSS IN CHAT CONTEXT //
 			 * 
 			 * if(action.equals("chat")) {
 			 * webView.loadUrl("javascript:(function() { " +
 			 * "document.getElementById('greybg').style.width = '"+width+"px'; "
 			 * + "})()"); }
-			 * 
-			 * 
-			 * // change css in wlan load context
+			 *
+             *
+             * //////////////////////////////////////
+			 * // CHANGE CSS IN WLAN LOAD CONTEXT //
 			 * 
 			 * if(action.equals("statistic")) {
 			 * 
@@ -596,8 +593,8 @@ public class WebviewActivity extends ActionBarActivity {
 			 * 
 			 * }
 			 * 
-			 * 
-			 * // change css in blog context
+			 * /////////////////////////////////
+			 * // CHANGE CSS IN BLOG CONTEXT //
 			 * 
 			 * if(action.equals("news")) {
 			 * 
@@ -637,8 +634,7 @@ public class WebviewActivity extends ActionBarActivity {
 			// focus webview, to activate input in website
 			webView.requestFocus(View.FOCUS_DOWN);
 
-			// http://stackoverflow.com/questions/9262092/webview-html-input-form-not-showing-allowing-keyboard
-			// http://stackoverflow.com/questions/3460915/webview-textarea-doesnt-pop-up-the-keyboard
+			// Webview Links
 
 		}
 

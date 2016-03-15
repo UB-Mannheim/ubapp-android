@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -22,7 +23,6 @@ package de.uni_mannheim.bib.app;
 
 import java.io.File;
 import java.util.List;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,35 +32,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 
 public class ConfigActivity<E> extends ActionBarActivity {
 
 	private boolean log_enabled = false;
-
-	/** comments and useful links
-		http://developer.android.com/guide/topics/ui/settings.html
-		http://developer.android.com/guide/topics/data/data-storage.html#pref
-		http://stackoverflow.com/questions/4213960/how-can-i-save-the-config-of-my-app-without-using-a-database-using-simple-te
-	
-		http://www.vogella.com/tutorials/AndroidSQLite/article.html
-
-		http://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
-
-		restart on save?
-		http://stackoverflow.com/questions/6609414/howto-programatically-restart-android-app
-		
-		user preferences
-		http://mobiforge.com/design-development/preserving-user-preferences-android-applications
-		https://developer.android.com/reference/android/preference/PreferenceFragment.html
-	*/
 	
 	String db = "bibservice";
 
@@ -85,14 +66,14 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_config);
 
-		// customized actionbar (Color, Title)
+		// Customized Actionbar (Color, Title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-		// deactivated, not returning to main
+		// Deactivated, not returning to main
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
 		actionBar.setTitle(R.string.app_name);
 
-		// defining buttons and ~groups
+		// Defining Buttons and ~groups
 		btn3 = (Button) findViewById(R.id.button3);
 	
 		rb6 = (RadioButton) findViewById(R.id.radio6);
@@ -107,13 +88,13 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		cb1 = (CheckBox) findViewById(R.id.checkBox1);
 		btn1 = (Button) findViewById(R.id.button1);
 		
-		// get preferences
+		// Get Preferences
 		SharedPreferences settings = getSharedPreferences("preferences", 0);
 		SharedPreferences.Editor preferencesEditor = settings.edit();
 
 		restart_app = false;
 		
-		// any existing databases?
+		// Any existing databases?
 		if (existsDB(db) == false) {
 
 			// Log Message
@@ -121,7 +102,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 				Log.e("ConfigActivity", "No Database File exists.");
 			}
 
-			// caching inactive
+			// Caching inactive
 			preferencesEditor.putString("Config_DatabaseModeOn", "false");
 			preferencesEditor.commit();
 
@@ -162,7 +143,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		}
 
 		
-		// if isset StartActivity
+		// If is set StartActivity
 
 		// Log Message
 		if (log_enabled) {
@@ -199,7 +180,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 
-				// checking form elements: checkbox
+				// Checking Form Elements: CheckBox
 				final CheckBox cb1 = (CheckBox) findViewById(R.id.checkBox1);
 
 				SharedPreferences settings = getSharedPreferences(
@@ -222,7 +203,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 					preferencesEditor.commit();
 				}
 
-				// checking form elements: radiobuttons
+				// Checking Form Elements: RadioButtons
 				final RadioButton r8 = (RadioButton) findViewById(R.id.radio8);
 				final RadioButton r7 = (RadioButton) findViewById(R.id.radio7);
 				final RadioButton r6 = (RadioButton) findViewById(R.id.radio6);
@@ -246,7 +227,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 				}
 
 				
-				// checking form elements: radiobuttons
+				// Checking Form Elements: RadioButtons
 				final RadioButton r9 = (RadioButton) findViewById(R.id.radio9);
 				final RadioButton r10 = (RadioButton) findViewById(R.id.radio10);
 				final RadioButton r11 = (RadioButton) findViewById(R.id.radio11);
@@ -256,8 +237,6 @@ public class ConfigActivity<E> extends ActionBarActivity {
 				try {
 
 					if (r9.isChecked()) {
-						// preferencesEditor.putString("Config_StartUpActivity",
-						// 		"0");
 						preferencesEditor.remove("Config_StartUpActivity");
 						
 						if(startup!=0) {
@@ -307,11 +286,9 @@ public class ConfigActivity<E> extends ActionBarActivity {
 					}
 				}
 
-				// reload activity
-				// finish();
-				// startActivity(getIntent());
-				
-				
+
+				// If App is restarted
+
 				if(restart_app) {
 					new AlertDialog.Builder(ConfigActivity.this)
 					.setTitle(getString(R.string.dialog_configActivity_startup_changed__title))
@@ -329,11 +306,11 @@ public class ConfigActivity<E> extends ActionBarActivity {
 									preferencesEditor.putString("Config_AppState", "shutdown");
 									preferencesEditor.commit();
 
-									// Close all activities properly
+									// Close all Activities properly
 									ActivityRegistry.getAll();
 									ActivityRegistry.finishAll();
 									
-									// set message
+									// Set Message
 									Toast.makeText(ConfigActivity.this,
 											getString(R.string.dialog_configActivity_restart_app__message), Toast.LENGTH_SHORT).show();
 									
@@ -359,7 +336,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 				}
 				
 				if(restart_app==false) {
-					// set toast and get back to original activity
+					// Set Toast and get back to original Activity
 					Toast.makeText(ConfigActivity.this,
 							getString(R.string.dialog_configActivity_saved_settings__message), Toast.LENGTH_SHORT).show();
 					finish();
@@ -370,8 +347,9 @@ public class ConfigActivity<E> extends ActionBarActivity {
 
 	}
 
-	// generalized "Button onClick Listener" (not used. just prepared)
-	public void addListenerOnButton(final Button button, final RadioGroup rgroup) {
+	// generalized "Button onClick Listener" (not used yet. just prepared)
+	/*
+    public void addListenerOnButton(final Button button, final RadioGroup rgroup) {
 
 		button.setOnClickListener(new View.OnClickListener() {
 
@@ -402,8 +380,9 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		});
 
 	}
+    */
 
-	public boolean existsDB(String dbname) {
+    public boolean existsDB(String dbname) {
 
 		boolean db_exists = false;
 
@@ -415,41 +394,6 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		}
 
 		return db_exists;
-	}
-
-	// 2do: check if necessary
-	public void insertNewsEntries() {
-
-		// SELECT COUNT
-		// if(count>0) {
-		// update entries
-		// add entries greater maxid after maxid
-		// }
-		// else {
-		// insert defined count of entries
-		// }
-
-		// Testdaten
-		// "1", "Learning Center am Samstag, 18. Oktober 2014 geschlossen",
-		// "Am Samstag, 18. Oktober ist das Learning Center im Bibliotheksbereich Schloss Schneckenhof wegen notwendiger Handwerkerarbeiten geschlossen.",
-		// "http://blog.bib.uni-mannheim.de/Aktuelles/?p=10541", "10541"
-		// "2", "De Gruyter-Datenbanken f�r Jura im Testzugriff bis 31.12.2014",
-		// "Der Verlag de Gruyter stellt bis zum 31. Dezember 2014 die folgenden Gro�kommentare, die jetzt auch als Online-Datenbanken angeboten werden, zum Testen an der Universit�t Mannheim zur Verf�gung. Die Datenbanken bieten Suchfunktionen und Verlinkungen auf die in den Kommentaren zitierten Normen und Entscheidungen.",
-		// "http://blog.bib.uni-mannheim.de/Aktuelles/?p=10499", "10499"
-
-	}
-
-	// 2do: check if necessary
-	public void insertLoadParams() {
-
-		// just one row to read :)
-		// SELECT value
-		// UPDATE value
-
-		// Testdaten
-		// "1", "1", "15.10.2014 10:22:12"
-		// "2", "2", "15.10.2014 10:34:22"
-
 	}
 
 	protected void createDatabase() {
@@ -495,33 +439,6 @@ public class ConfigActivity<E> extends ActionBarActivity {
 			long news13_id = db.createNews(news13);
 			long news14_id = db.createNews(news14);
 			long news15_id = db.createNews(news15);
-
-			/** 2do: check if debug mode is necessary
-			 * Log.d("News Count", "News Count: " + db.getAllNews().size());
-
-			 * Getting all News: Id/Title
-			 * Log.d("Get News", "Getting All News");
-			 * List<News> allNews = db.getAllNews();
-			 * for (News news : allNews) {
-			 * Log.d("News Id/Title", news.getId() + "/" + news.getTitle());
-			 * }
-
-			 * Deleting a News
-			 * Log.d("Delete News", "Deleting a News");
-			 * Log.d("News Count", "News Count Before Deleting: " +
-			 * db.getNewsCount());
-			 * db.deleteNews(news5_id);
-			 * Log.d("News Count", "News Count After Deleting: " +
-			 * db.getNewsCount());
-
-			 * Log.d("Get News", "Getting All News");
-
-			 * Getting all News: Id/Title
-			 * allNews = db.getAllNews();
-			 * for (News news : allNews) {
-			 * Log.d("News Id/Title", news.getId() + "/" + news.getTitle());
-			 * }
-			*/
 			
 			// Creating Standard Set of Load Entries
 			Load load1 = new Load(1, "Info Center", -1);
@@ -554,7 +471,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 			// Get Object Information
 			// db.getObjectInformation(news1);
 
-			// don't forget to close database connection
+			// Close database connection
 			db.closeDB();
 
 		}
@@ -566,7 +483,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		DatabaseHelper db = new DatabaseHelper(getApplicationContext());
 		db.initTables(db.getWritableDatabase());
 
-		// creating standard set of news
+		// Creating Standard Set of News
 		News news1 = initNews.get(0);
 		News news2 = initNews.get(1);
 		News news3 = initNews.get(2);
@@ -579,7 +496,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		long news4_id = db.createNews(news4);
 		long news5_id = db.createNews(news5);
 
-		// creating standard set of load entries
+		// Creating Standard Set of Load Entries
 		Load load1 = initLoad.get(0);
 		Load load2 = initLoad.get(1);
 		Load load3 = initLoad.get(2);
@@ -594,7 +511,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		long load5_id = db.createLoad(load5);
 		long load6_id = db.createLoad(load6);
 
-		// creating standard set of load entries
+		// Creating Standard Set of Load Entries
 		History history_news = new History(1, 1, db.getDateTime());
 		History history_load = new History(2, 2, db.getDateTime());
 

@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -19,7 +20,6 @@ package de.uni_mannheim.bib.app;
 
 import android.os.Bundle;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -50,15 +50,13 @@ public class HelpActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_help);
 
-		// customized actionbar (Color, Title)
+		// Customized Actionbar (Color, Title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		// actionBar.setBackgroundDrawable(new ColorDrawable(Color
 		//		.parseColor("#990000")));
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
         actionBar.setTitle(R.string.app_name);
-
-		// http://tablet-market.de/android-listview-tutorial-mit-listadapter-einsteiger/
 
 		// final Button button1 = (Button) findViewById(R.id.button1);
 		final TableRow tRow0 = (TableRow) findViewById(R.id.tableRow0);

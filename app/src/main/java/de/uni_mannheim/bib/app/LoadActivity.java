@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -21,11 +22,9 @@ package de.uni_mannheim.bib.app;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,7 +42,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 
 public class LoadActivity extends ActionBarActivity {
@@ -90,17 +88,17 @@ public class LoadActivity extends ActionBarActivity {
 		// Toast.makeText(getApplicationContext(), this.getClass().getName(), 
 				// Toast.LENGTH_SHORT).show();
 		
-		// screen layout for main activity
+		// Screen Layout for Main Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_load);
 
-		// customized actionbar (Color, Title)
+		// Customized Actionbar (Color, Title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
 		actionBar.setTitle(R.string.app_name);
 
-		// create refresh button
+		// Create Refresh Button
 		final ImageView imageView8 = (ImageView) findViewById(R.id.imageView8);
 
 		imageView8.setOnClickListener(new View.OnClickListener() {
@@ -163,16 +161,16 @@ public class LoadActivity extends ActionBarActivity {
 			Log.e(this.getClass().toString(), "onStart");
 		}
 
-		// prepare for a progress bar dialog
+		// Prepare for a ProgressBar Dialog
 		progressBar = new ProgressDialog(gv.getContext());
-		// progressBar.setCancelable(true);
+			// progressBar.setCancelable(true);
 		progressBar.setMessage(getString(R.string.dialog_loading));
-		// progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		// progressBar.setProgress(0);
-		// progressBar.setMax(100);
+			// progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+			// progressBar.setProgress(0);
+			// progressBar.setMax(100);
 		progressBar.show();
 
-		// reset progress bar status
+		// Reset ProgressBar Status
 		progressBarStatus = 0;
 
 		// GridView invisible until content is loaded
@@ -191,7 +189,7 @@ public class LoadActivity extends ActionBarActivity {
 					Log.e(this.getClass().toString(), "Start inner Thread ...");
 				}
 
-				// get Preferences
+				// Get Preferences
 				SharedPreferences settings = getSharedPreferences(
 						"preferences", 0);
 
@@ -202,14 +200,14 @@ public class LoadActivity extends ActionBarActivity {
 				String network_helper_state = h
 						.getNetworkConnectionState(network_state);
 
-				// DB Mode
+				// Database Mode
 				db_mode_on = settings.getString("Config_DatabaseModeOn",
 						"false");
 
-				// DB Helper
+				// Initialize Database Helper
 				DatabaseHelper dbh = new DatabaseHelper(getApplicationContext());
 
-				// Data Collector
+				// Initialize Data Collector
 				DataCollector dc = new DataCollector();
 
 /**
@@ -221,7 +219,7 @@ public class LoadActivity extends ActionBarActivity {
 				// Actions in loop
 				while (progressBarStatus < 100) {
 
-// Log.e(" ---------- DEBUG ---------- ", "While progressBarStatus loading");
+				// Log.e(" ---------- DEBUG ---------- ", "While progressBarStatus loading");
 					
 					// Log Message
 					if (log_enabled) {
@@ -229,7 +227,7 @@ public class LoadActivity extends ActionBarActivity {
 								String.valueOf(progressBarStatus));
 					}
 
-					// if computer is too fast, sleep 1 second to see dialog
+					// If Computer is too fast, sleep 1 second to see Dialog
 					try {
 						// Thread.sleep(1000);
 						Thread.sleep(1);
@@ -305,7 +303,7 @@ public class LoadActivity extends ActionBarActivity {
 								getApplicationContext(), network_helper_state,
 								db_mode_on, dbh, loadWWW, loadDB);
 
-						// if DB is Off
+						// If Database is Off
 						if (db_mode_on.equals("false")) {
 						
 							// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> empty && db_mode off");
@@ -325,7 +323,7 @@ public class LoadActivity extends ActionBarActivity {
 						
 				// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> filled");
 						
-						// count up progressBar
+						// Count up ProgressBar
 						// progressBarStatus += 1;
 
 						// set progressBar=100
@@ -363,17 +361,17 @@ public class LoadActivity extends ActionBarActivity {
  * ****************************************************************************
 */
 				
-				// ok, action is fullfilled
+				// Ok, Action is fulfilled
 				if (progressBarStatus >= 100) {
 				
-// Log.e(" ---------- DEBUG ---------- ", "progressBarStatus loaded (loading finished)");
+				// Log.e(" ---------- DEBUG ---------- ", "progressBarStatus loaded (loading finished)");
 					
 					// Log Message
 					if (log_enabled) {
 						Log.e(this.getClass().toString(), "ProgressBar Full");
 					}
 
-					// sleep some seconds, so that you can see the 100%
+					// Sleep some seconds, so that you can see the 100%
 					try {
 						// Thread.sleep(2000);
 						Thread.sleep(1);
@@ -384,7 +382,7 @@ public class LoadActivity extends ActionBarActivity {
 					// If Global Load available
 					if (dsLoad != null) {
 
-// Log.e(" ---------- DEBUG ---------- ", "progessBar full && dataset <dsLoad> filled");
+					// Log.e(" ---------- DEBUG ---------- ", "progessBar full && dataset <dsLoad> filled");
 						
 						// Log Message
 						if (log_enabled) {
@@ -403,7 +401,7 @@ public class LoadActivity extends ActionBarActivity {
 						// If DB Mode on update History
 						if (db_mode_on.equals("true") &&  (srcFromWWW==true)) {
 							
-// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> filled && db_mode = on");
+						// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> filled && db_mode = on");
 							
 							History hload = new History(2, 2, dbh.getDateTime());
 							dbh.updateHistory(hload);
@@ -411,9 +409,8 @@ public class LoadActivity extends ActionBarActivity {
 							// Log.e(" ---------- DEBUG ---------- ", "updating time in db");
 						}
 
-// Log.e(" ---------- DEBUG ---------- ", "fill temporary List");
+					// Log.e(" ---------- DEBUG ---------- ", "fill temporary List");
 
-						
 						
 						// Fill Temporary Lists
 						for (int i = 0; i < dsLoad.size(); i++) {
@@ -436,7 +433,7 @@ public class LoadActivity extends ActionBarActivity {
 							}
 
 							if(i==5 && db_empty) {
-// Log.e(" ---------- DEBUG ---------- ", "db_empty");
+							// Log.e(" ---------- DEBUG ---------- ", "db_empty");
 								/*								
 								Looper.prepare();
 								Looper.loop();
@@ -670,7 +667,9 @@ public class LoadActivity extends ActionBarActivity {
 		if(min<9) {
 			min_string = "0" + String.valueOf(min);
 		}
-		// CHECK IF NECESSARY, was DELETED in alst Version
+
+		// FixMe
+		// CHECK IF NECESSARY, was DELETED in last Version
 		String lang = getResources().getConfiguration().locale.getDefault().getLanguage();
 		String am_pm = " am";
 
@@ -743,36 +742,6 @@ public class LoadActivity extends ActionBarActivity {
 			preferencesEditor.putString("NetworkConnectionAvailable",
 					"false");
 			preferencesEditor.commit();
-			/*
-			new AlertDialog.Builder(LoadActivity.this)
-			.setTitle(
-					"Verbindungsfehler")
-			.setMessage(
-					"F�r diese Anwendung ist eine Datenverbindung erforderlich. "
-						+ "Atkivieren Sie Mobilfunk oder Wi-Fi, um Daten "
-						+ "herunterzuladen.")
-			.setPositiveButton(
-					"Einstellungen",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(
-								DialogInterface dialog,
-								int which) {
-							
-							startActivityForResult(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS), 0);
-							finish();
-						}
-					})
-			.setNegativeButton("Abbrechen",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(
-								DialogInterface dialog,
-								int which) {
-			
-						}
-					}).show();
-			*/
 		}
 	}
 

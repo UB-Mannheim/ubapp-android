@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -25,7 +26,6 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -61,11 +61,11 @@ public class BlogActivity extends ActionBarActivity {
 			Log.e( this.getClass().getName().toUpperCase().toString(), " ... LOADED");
 		}
 		
-		// screen layout for main activity
+		// Screen Layout for main Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_blog);
 
-		// customized actionbar (Color, Title)
+		// Customized Actionbar (Color, Title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
@@ -81,31 +81,28 @@ public class BlogActivity extends ActionBarActivity {
 
 	@Override
 	public void onStart() {
-		// public void onStart(View v) {
 
 		// Log Message
 		if (log_enabled) {
 			Log.e(this.getClass().toString(), "onStart");
 		}
 
-		// prepare for a progress bar dialog
+		// Prepare for a ProgressBar Dialog
 		progressBar = new ProgressDialog(gv.getContext());
-		// progressBar.setCancelable(true);
+			// progressBar.setCancelable(true);
 		progressBar.setMessage(getString(R.string.dialog_loading));
-		// progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-		// progressBar.setProgress(0);
-		// progressBar.setMax(100);
+			// progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+			// progressBar.setProgress(0);
+			// progressBar.setMax(100);
 		progressBar.show();
 
-		// reset progress bar status
+		// Reset ProgressBar Status
 		progressBarStatus = 0;
 
 		// GridView invisible until content is loaded
 		gv.setVisibility(View.GONE);
 
-		// progressBar = ProgressDialog.show(this, loading, "", true, false);
-
-		// initialize newsList
+		// Initialize NewsList
 		newsList = null;
 
 		new Thread(new Runnable() {
@@ -117,7 +114,7 @@ public class BlogActivity extends ActionBarActivity {
 					Log.e(this.getClass().toString(), "Start inner Thread ...");
 				}
 
-				// get Preferences
+				// Get Preferences
 				SharedPreferences settings = getSharedPreferences(
 						"preferences", 0);
 
@@ -142,10 +139,10 @@ public class BlogActivity extends ActionBarActivity {
 				db_mode_on = settings.getString("Config_DatabaseModeOn",
 						"false");
 
-				// DB Helper
+				// Initialize DB Helper
 				DatabaseHelper dbh = new DatabaseHelper(getApplicationContext());
 
-				// Data Collector
+				// Initialize Data Collector
 				DataCollector dc = new DataCollector();
 
 				// Actions in loop
@@ -157,7 +154,7 @@ public class BlogActivity extends ActionBarActivity {
 								String.valueOf(progressBarStatus));
 					}
 
-					// if computer is too fast, sleep 1 second to see dialog
+					// If Computer is too fast, sleep 1 second to see dialog
 					try {
 						// Thread.sleep(1000);
 						Thread.sleep(1);
@@ -185,8 +182,8 @@ public class BlogActivity extends ActionBarActivity {
 					 * " - " + n.getTitle().substring(0, 20) ); } } }
 					 */
 
-					// if News not available
-					// until newsList is complete
+					// If News not available
+					// Until NewsList is complete
 					if (newsList == null) {
 
 						// Log Message
@@ -199,7 +196,7 @@ public class BlogActivity extends ActionBarActivity {
 								getApplicationContext(), network_helper_state,
 								db_mode_on, dbh, news_range, listWWW, listDB);
 
-						// if DB is Off
+						// If DB is off
 						if (db_mode_on.equals("false")) {
 							try {
 								// Thread.currentThread().interrupt();
@@ -216,10 +213,10 @@ public class BlogActivity extends ActionBarActivity {
 						}
 
 					} else {
-						// count up progressBar
+						// Count up ProgressBar
 						// progressBarStatus += 1;
 
-						// set progressBar=100
+						// Set ProgressBar=100
 						progressBarStatus = 100;
 
 						// Log Message
@@ -230,7 +227,7 @@ public class BlogActivity extends ActionBarActivity {
 
 					}
 
-					// Update the progress bar
+					// Update the ProgressBar
 					progressBarHandler.post(new Runnable() {
 						@Override
 						public void run() {
@@ -246,7 +243,7 @@ public class BlogActivity extends ActionBarActivity {
 
 				} // while end
 
-				// ok, action is fullfilled
+				// Ok, action is fulfilled
 				if (progressBarStatus >= 100) {
 
 					// Log Message
@@ -254,7 +251,7 @@ public class BlogActivity extends ActionBarActivity {
 						Log.e(this.getClass().toString(), "ProgressBar Full");
 					}
 
-					// sleep some seconds, so that you can see the 100%
+					// Sleep some Seconds, so that you can see the 100%
 					try {
 						// Thread.sleep(2000);
 						Thread.sleep(1);
@@ -271,7 +268,7 @@ public class BlogActivity extends ActionBarActivity {
 								Log.e(this.getClass().toString(),
 										"newsList Content: " +
 										// n.toString());
-												":" + n[0].toString() + ":");
+										":" + n[0].toString() + ":");
 							}
 						}
 
@@ -328,7 +325,7 @@ public class BlogActivity extends ActionBarActivity {
 
 									// Close Loading Dialog
 									// progressBar.dismiss(); // called at end
-									// of loop
+									// of Loop
 									// GridView visibility on
 									gv.setVisibility(View.VISIBLE);
 
@@ -369,7 +366,7 @@ public class BlogActivity extends ActionBarActivity {
 
 					}
 
-					// close the progress bar dialog
+					// Close the ProgressBar dialog
 					progressBar.dismiss();
 
 				} // if progressBarStatus >= 100
@@ -420,14 +417,11 @@ public class BlogActivity extends ActionBarActivity {
 	public void onRestart() {
 		super.onRestart();
 		
-		// Log.e("--------XXXXXXXXXXXXXXXXx-----------", "onRestart");
 		SharedPreferences settings = BlogActivity.this.getSharedPreferences(
 				"preferences", 0);
 		
 		NetworkChecker nc = new NetworkChecker();
 		boolean netstat = nc.isConnected(BlogActivity.this);
-		
-		// Log.e("NETSTAT", String.valueOf(netstat));
 		
 		if(netstat) {
 			SharedPreferences.Editor preferencesEditor = settings.edit();
@@ -440,36 +434,6 @@ public class BlogActivity extends ActionBarActivity {
 			preferencesEditor.putString("NetworkConnectionAvailable",
 					"false");
 			preferencesEditor.commit();
-			/*
-			new AlertDialog.Builder(LoadActivity.this)
-			.setTitle(
-					"Verbindungsfehler")
-			.setMessage(
-					"F�r diese Anwendung ist eine Datenverbindung erforderlich. "
-						+ "Atkivieren Sie Mobilfunk oder Wi-Fi, um Daten "
-						+ "herunterzuladen.")
-			.setPositiveButton(
-					"Einstellungen",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(
-								DialogInterface dialog,
-								int which) {
-							
-							startActivityForResult(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS), 0);
-							finish();
-						}
-					})
-			.setNegativeButton("Abbrechen",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(
-								DialogInterface dialog,
-								int which) {
-			
-						}
-					}).show();
-			*/
 		}
 	}
 

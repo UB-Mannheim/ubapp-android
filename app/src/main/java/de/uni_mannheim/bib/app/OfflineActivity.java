@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -32,14 +33,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 
 public class OfflineActivity extends ActionBarActivity {
 
-	// for customized and consistent UI (Android 2.3 - 4.x)
-	// always extend ActionBarActivity
+	// For customized and consistent UI (Android 2.3 - 4.x)
+	// Always extend ActionBarActivity
 
 	private boolean log_enabled = false;
 	
@@ -52,15 +52,14 @@ public class OfflineActivity extends ActionBarActivity {
 			Log.e( this.getClass().getName().toUpperCase().toString(), " ... LOADED");
 		}
 		
-		// screen layout for main activity
+		// Screen Layout for Main Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_offline);
 
 		// Show the Up button in the action bar. (Autmatic)
 		setupActionBar();
 
-		// customized actionbar (Color, Title)
-
+		// Customized Actionbar (Color, Title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
@@ -70,7 +69,7 @@ public class OfflineActivity extends ActionBarActivity {
 
 		webView1.loadUrl("file:///android_asset/offline.html");
 		
-		// get Preferences
+		// Get Preferences
 		SharedPreferences settings = getSharedPreferences(
 				"preferences", 0);
 		// Network State
@@ -133,7 +132,7 @@ public class OfflineActivity extends ActionBarActivity {
 	
 	@Override
 	public void onBackPressed() {
-		// exits app, no more activites in stack?
+		// Exits app, no more activites in stack?
 		// moveTaskToBack(true);
 		
 		NavUtils.navigateUpFromSameTask(this);

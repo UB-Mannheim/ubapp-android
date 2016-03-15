@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -19,18 +20,13 @@
 package de.uni_mannheim.bib.app;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -40,7 +36,6 @@ import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.Toast;
 
-// http://www.caveofprogramming.com/uncategorized/custom-gridview-with-imageview-and-textview-in-android/
 
 public class MainActivity extends ActionBarActivity {
 
@@ -57,19 +52,9 @@ public class MainActivity extends ActionBarActivity {
 	String str_seats = "";
 
 
-	// public static String[] prgmNameList = { "Website", "Katalog", "Aktuelles",
 	public String[] prgmNameList = new String[]{str_www, str_primo, str_news,
 			str_seats};
-	/*
-	public static String[] prgmNameList = new String[]{ str_www, str_primo, str_news,
-			str_seats };
-	*/
 
-	/*
-	public static int[] prgmImages = { R.drawable.lila_dunkel_www_rund,
-			R.drawable.blau_dunkel_cat_rund, R.drawable.rot_news_rund,
-			R.drawable.orange_dunkel_stat_rund };
-	*/
 	public static int[] prgmImages = { R.drawable.lila_dunkel_www,
 		R.drawable.blau_dunkel_cat, R.drawable.rot_news,
 		R.drawable.orange_dunkel_stat };
@@ -88,20 +73,20 @@ public class MainActivity extends ActionBarActivity {
 		// Toast.makeText(getApplicationContext(), this.getClass().getName(), 
 				// Toast.LENGTH_SHORT).show();
 		
-		// screen layout for main activity
+		// Screen Layout for Main Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		// customized actionbar (color, title)
+		// Customized Actionbar (color, title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.library_bg)));
         actionBar.setTitle(R.string.app_name);
 
-        // ONLY DEBUG
-		SharedPreferences settings = getSharedPreferences("preferences", 0);
+        SharedPreferences settings = getSharedPreferences("preferences", 0);
+		// Debug
 		// settings.edit().clear().commit();
 
-		// init configuration
+		// Init Configuration
 		initConfig();
 
 		this.str_www = this.getString(R.string.__www__);
@@ -114,7 +99,7 @@ public class MainActivity extends ActionBarActivity {
 		this.prgmNameList[2] = this.str_news;
 		this.prgmNameList[3] = this.str_seats;
 
-		// if custom_startup configured
+		// If custom_startup configured
 		boolean custom_startup = issetStartUp();
 		if (custom_startup) {
 
@@ -136,7 +121,7 @@ public class MainActivity extends ActionBarActivity {
 				myIntent = new Intent(MainActivity.this, StartUpActivity.class);
 				MainActivity.this.startActivity(myIntent);
 
-// Log.e(this.getClass().toString(), "goto Startup");
+        // Log.e(this.getClass().toString(), "goto Startup");
 
 			} else {
 				// for example running
@@ -174,7 +159,6 @@ public class MainActivity extends ActionBarActivity {
 
 		// Log.v("onOptionsItemSelected","called:"+item.getGroupId());
 
-		// switch (item.getGroupId()) {
 		switch (item.getItemId()) {
 		// case 0:
 		case R.id.action_config:
@@ -182,18 +166,14 @@ public class MainActivity extends ActionBarActivity {
 					ConfigActivity.class);
 			MainActivity.this.startActivity(myIntent0);
 			return true;
-			// case 1:
+		// case 1:
 		case R.id.action_help:
 			Intent myIntent1 = new Intent(MainActivity.this, HelpActivity.class);
 			MainActivity.this.startActivity(myIntent1);
 			return true;
-			// case 0: Intent myIntent =
-			// new Intent(MainActivity.this, TestDBActivity2.class);
-			// MainActivity.this.startActivity(myIntent);
-			// return true;
 
-			// GOBACK
-			// http://stackoverflow.com/questions/4038479/android-go-back-to-previous-activity
+
+		// Howto go-back(), Link
 		}
 
 		return super.onOptionsItemSelected(item);
@@ -201,16 +181,16 @@ public class MainActivity extends ActionBarActivity {
 
 	protected void initConfig() {
 
-		// initialize shared preferences
+		// Initialize shared Preferences
 		SharedPreferences settings = getSharedPreferences("preferences", 0);
 		SharedPreferences.Editor preferencesEditor = settings.edit();
 
-		// set default preferences
+		// Set default Preferences
 		String cfgChanged = settings.getString("Config_ParamsChanged", null);
 
 		if (cfgChanged == null) {
 
-			// initial creation
+			// Initial Creation
 			preferencesEditor.putString("Config_ParamsChanged", "false");
 
 			preferencesEditor.putString("NetworkConnectionAvailable", "true");
@@ -219,10 +199,10 @@ public class MainActivity extends ActionBarActivity {
 			preferencesEditor.putString("Config_LoadInterval", "1");
 			preferencesEditor.commit();
 
-// Log.e("MainActivity", "Configuration created");
+            // Log.e("MainActivity", "Configuration created");
 
 		} else {
-// Log.e("MainActivity", "Configuration already exists");
+            // Log.e("MainActivity", "Configuration already exists");
 		}
 
 	}
@@ -243,95 +223,12 @@ public class MainActivity extends ActionBarActivity {
 
 	}
 
-	/*
-	 * protected void switchToActivity() {
-	 * 
-	 * // Values: // 0 = Main // 1 = Website // 2 = Primo // 3 = News // 4 =
-	 * Auslastung
-	 * 
-	 * 
-	 * // initialize shared preferences SharedPreferences settings =
-	 * getSharedPreferences("preferences", 0);
-	 * 
-	 * // set default preferences int startup_id =
-	 * Integer.valueOf(settings.getString("Config_StartUpActivity", "0"));
-	 * Intent myIntent;
-	 * 
-	 * switch (startup_id) {
-	 * 
-	 * case 0: myIntent = new Intent(MainActivity.this, MainActivity.class);
-	 * MainActivity.this.startActivity(myIntent); break; case 1:
-	 * openWebView("Webseite"); break; case 2: openWebView("Katalog"); break;
-	 * case 3: myIntent = new Intent(MainActivity.this, BlogActivity.class);
-	 * MainActivity.this.startActivity(myIntent); break; case 4: myIntent = new
-	 * Intent(MainActivity.this, LoadActivity.class);
-	 * MainActivity.this.startActivity(myIntent); break; default:myIntent = new
-	 * Intent(MainActivity.this, MainActivity.class);
-	 * MainActivity.this.startActivity(myIntent); break;
-	 * 
-	 * }
-	 * 
-	 * }
-	 * 
-	 * protected void openWebView(String site) {
-	 * 
-	 * NetworkChecker nc = new NetworkChecker();
-	 * 
-	 * // setConfig Network=true SharedPreferences settings =
-	 * getSharedPreferences("preferences", 0); SharedPreferences.Editor
-	 * preferencesEditor = settings.edit();
-	 * 
-	 * if (nc.isConnected(this.getApplicationContext())) {
-	 * 
-	 * preferencesEditor.putString("NetworkConnectionAvailable", "true");
-	 * preferencesEditor.commit(); } else { // setConfig Network=false
-	 * preferencesEditor.putString("NetworkConnectionAvailable", "false");
-	 * preferencesEditor.commit(); }
-	 * 
-	 * 
-	 * String netstate = settings.getString("NetworkConnectionAvailable",
-	 * "false");
-	 * 
-	 * // Log Message if(log_enabled) { Log.e("Main", "Netstate " + netstate); }
-	 * 
-	 * if(netstate.equals("true")) {
-	 * 
-	 * 
-	 * if(site.equals("Webseite")) {
-	 * 
-	 * openWebViewWithUrl(this.getApplicationContext(), WebviewActivity.class,
-	 * "http://www.bib.uni-mannheim.de/mobile/de/1.html", "www"); }
-	 * 
-	 * if(site.equals("Katalog")) {
-	 * openWebViewWithUrl(this.getApplicationContext(), WebviewActivity.class,
-	 * "http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE"
-	 * , "catalogue"); }
-	 * 
-	 * } else {
-	 * 
-	 * openWebViewWithUrl(this.getApplicationContext(), OfflineActivity.class,
-	 * "", ""); }
-	 * 
-	 * 
-	 * }
-	 * 
-	 * // vorerst uebernommen aus MainAdapter // CleanMe! private void
-	 * openWebViewWithUrl(Context self, Class next, String url, String action) {
-	 * 
-	 * Intent i = new Intent(self, next); i.putExtra("url", url);
-	 * i.putExtra("action", action);
-	 * 
-	 * self.startActivity(i); }
-	 */
-
 	@Override
 	public void onBackPressed() {
-		// onBackPressed, onStop, onDestroy
+		// Modes: onBackPressed, onStop, onDestroy
 
-			
-			// backstack
-			// http://tips.androidhive.info/2013/10/how-to-clear-all-activity-stack-in-android/
-			// simply add finish after starting new activity
+		// backstack, Link
+		// Simply add finish after starting new activity
 			
 		SharedPreferences settings = getSharedPreferences("preferences", 0);
 		SharedPreferences.Editor preferencesEditor = settings.edit();
@@ -355,47 +252,5 @@ public class MainActivity extends ActionBarActivity {
 	    finish();
 	    */
 	}
-	
-	/* EXPERIMENTAL
-	@Override
-	public void onBackPressed() {
-		// onBackPressed, onStop, onDestroy
-
-		SharedPreferences settings = getSharedPreferences("preferences", 0);
-		SharedPreferences.Editor preferencesEditor = settings.edit();
-
-		preferencesEditor.putString("Config_AppState", "shutdown");
-		preferencesEditor.commit();
-		
-		//moveTaskToBack(true);
-		
-		finish();
-		
-		// System.exit(0);
-		
-		// android.os.Process.killProcess(android.os.Process.myPid());
-		
-		// alternatively double click /////////////////////
-		 * 
-		if (back_pressed + 1000 > System.currentTimeMillis()) {
-			// super.onBackPressed();
-			
-			SharedPreferences settings = getSharedPreferences("preferences", 0);
-			SharedPreferences.Editor preferencesEditor = settings.edit();
-
-			preferencesEditor.putString("Config_AppState", "shutdown");
-			preferencesEditor.commit();
-			
-			finish();
-			
-		} else {
-			Toast.makeText(getBaseContext(), "Zum Beenden Doppelklicken", Toast.LENGTH_SHORT).show();
-		}
-        
-		back_pressed = System.currentTimeMillis();
-		
-		//////////////////////////////////////////////////
-		
-	}*/
 	
 }
