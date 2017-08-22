@@ -348,6 +348,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 	}
 
 	// generalized "Button onClick Listener" (not used yet. just prepared)
+
 	/*
     public void addListenerOnButton(final Button button, final RadioGroup rgroup) {
 
