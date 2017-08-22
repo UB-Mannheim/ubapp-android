@@ -3,7 +3,8 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
- * 
+ *    Last modified on 2016-03-15
+ *
  * 
  * This is free software licensed under the terms of the GNU GPL, 
  * version 3, or (at your option) any later version.
@@ -127,16 +128,16 @@ public class StartUpActivity extends Activity {
 
 	protected void initConfig() {
 
-		// initialize shared preferences
+		// Initialize Shared Preferences
 		SharedPreferences settings = getSharedPreferences("preferences", 0);
 		SharedPreferences.Editor preferencesEditor = settings.edit();
 
-		// set default preferences
+		// Set Default Preferences
 		String cfgChanged = settings.getString("Config_ParamsChanged", null);
 
 		if (cfgChanged == null) {
 
-			// initial creation
+			// Initial Creation
 			preferencesEditor.putString("Config_ParamsChanged", "false");
 
 			preferencesEditor.putString("NetworkConnectionAvailable", "true");
@@ -163,10 +164,10 @@ public class StartUpActivity extends Activity {
 		// 3 = News
 		// 4 = Auslastung
 
-		// initialize shared preferences
+		// Initialize Shared Preferences
 		SharedPreferences settings = getSharedPreferences("preferences", 0);
 
-		// set default preferences
+		// Set Default Preferences
 		int startup_id = Integer.valueOf(settings.getString(
 				"Config_StartUpActivity", "0"));
 		Intent myIntent;
@@ -204,7 +205,7 @@ public class StartUpActivity extends Activity {
 
 		NetworkChecker nc = new NetworkChecker();
 
-		// setConfig Network=true
+		// Set Config Network=true
 		SharedPreferences settings = getSharedPreferences("preferences", 0);
 		SharedPreferences.Editor preferencesEditor = settings.edit();
 
@@ -213,7 +214,7 @@ public class StartUpActivity extends Activity {
 			preferencesEditor.putString("NetworkConnectionAvailable", "true");
 			preferencesEditor.commit();
 		} else {
-			// setConfig Network=false
+			// Set Config Network=false
 			preferencesEditor.putString("NetworkConnectionAvailable", "false");
 			preferencesEditor.commit();
 		}
@@ -254,7 +255,7 @@ public class StartUpActivity extends Activity {
 	}
 
 	// vorerst uebernommen aus MainAdapter
-	// CleanMe!
+	// FixMe
 	// DEBUG
 	private void openWebViewWithUrl(Context self, Class next, String url,
 			String action) {

@@ -4,7 +4,7 @@
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
  *    Last modified on 2016-03-15
- * 
+ *
  * 
  * This is free software licensed under the terms of the GNU GPL, 
  * version 3, or (at your option) any later version.
@@ -162,22 +162,22 @@ public class TestDBActivity2 extends Activity {
 		// Creating News
 		/*
 		 * News news1 = new News(1, "Auswertung der rumfrage! 2014 ist online",
-		 * "Die Auswertung der Umfrage des Rechenzentrums der Universit�t Mannheim ist online."
+		 * "Die Auswertung der Umfrage des Rechenzentrums der Universität Mannheim ist online."
 		 * , "http://blog.bib.uni-mannheim.de/Aktuelles/?p=10588", 10588); News
 		 * news2 = new News(2, "Diese Woche im Learning Center:",
-		 * "Zugangsdaten & Passw�rter, Schreibberatung, Workshop Texte gliedern, VPN & WLAN"
+		 * "Zugangsdaten & Passwörter, Schreibberatung, Workshop Texte gliedern, VPN & WLAN"
 		 * , "http://blog.bib.uni-mannheim.de/Aktuelles/?p=10579", 10579); News
 		 * news3 = new News(3,
 		 * "Bibliothek der DHBW sucht studentische Hilfskraft",
-		 * "Die Bibliothek der Dualen Hochschule Baden-W�rttemberg Mannheim sucht ..."
+		 * "Die Bibliothek der Dualen Hochschule Baden-Württemberg Mannheim sucht ..."
 		 * , "http://blog.bib.uni-mannheim.de/Aktuelles/?p=10569", 10569); News
 		 * news4 = new News(4,
 		 * "Workshop: Texte logisch gliedern und schriftlich argumentieren",
-		 * "Workshop-Reihe Wissenschaftliches Arbeiten f�r ...",
+		 * "Workshop-Reihe Wissenschaftliches Arbeiten für ...",
 		 * "http://blog.bib.uni-mannheim.de/Aktuelles/?p=10565", 10565); News
 		 * news5 = new News(5,
-		 * "Testen Sie �Springer Reference Works� bis 15.11.2014",
-		 * "Bis zum 15. November 2014 k�nnen im Campusnetz die ...",
+		 * "Testen Sie Springer Reference Works bis 15.11.2014",
+		 * "Bis zum 15. November 2014 können im Campusnetz die ...",
 		 * "http://blog.bib.uni-mannheim.de/Aktuelles/?p=10546", 10546); // News
 		 * news6 = new News(6,
 		 * "Learning Center am Samstag, 18. Oktober 2014 geschlossen",
@@ -188,21 +188,21 @@ public class TestDBActivity2 extends Activity {
 		News news1 = new News(
 				1,
 				"Diese Woche im Learning Center:",
-				"Zugangsdaten & Passw�rter, Schreibberatung, Workshop Texte gliedern, VPN & WLAN",
+				"Zugangsdaten & Passwörter, Schreibberatung, Workshop Texte gliedern, VPN & WLAN",
 				"http://blog.bib.uni-mannheim.de/Aktuelles/?p=10579", 10579);
 		News news2 = new News(
 				2,
 				"Bibliothek der DHBW sucht studentische Hilfskraft",
-				"Die Bibliothek der Dualen Hochschule Baden-W�rttemberg Mannheim sucht ...",
+				"Die Bibliothek der Dualen Hochschule Baden-Württemberg Mannheim sucht ...",
 				"http://blog.bib.uni-mannheim.de/Aktuelles/?p=10569", 10569);
 		News news3 = new News(
 				3,
 				"Workshop: Texte logisch gliedern und schriftlich argumentieren",
-				"Workshop-Reihe Wissenschaftliches Arbeiten f�r ...",
+				"Workshop-Reihe Wissenschaftliches Arbeiten für ...",
 				"http://blog.bib.uni-mannheim.de/Aktuelles/?p=10565", 10565);
 		News news4 = new News(4,
-				"Testen Sie �Springer Reference Works� bis 15.11.2014",
-				"Bis zum 15. November 2014 k�nnen im Campusnetz die ...",
+				"Testen Sie Springer Reference Works bis 15.11.2014",
+				"Bis zum 15. November 2014 können im Campusnetz die ...",
 				"http://blog.bib.uni-mannheim.de/Aktuelles/?p=10546", 10546);
 		News news5 = new News(5,
 				"Learning Center am Samstag, 18. Oktober 2014 geschlossen",
