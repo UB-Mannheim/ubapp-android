@@ -3,12 +3,14 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
  * version 3, or (at your option) any later version.
  * See <http://www.gnu.org/licenses/> for more details.
  *
+ * (INACTIVE)
  *
  * Database testing class
  * 
@@ -111,7 +113,7 @@ public class TestDBActivity2 extends Activity {
 				 * "0");
 				 */
 
-				// http://chrisrisner.com/31-Days-of-Android--Day-22%E2%80%93Shared-Preferences
+				// 31-Day Link
 
 				initConfig();
 				/*

@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -23,7 +24,7 @@ public class History {
 	int module_id;
 	String last_update;
 
-	// constructors
+	// Constructors
 	public History() {
 	}
 
@@ -38,7 +39,7 @@ public class History {
 		this.last_update = last_update;
 	}
 
-	// setters
+	// Setters
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -51,7 +52,7 @@ public class History {
 		this.last_update = last_update;
 	}
 
-	// getters
+	// Getters
 	public long getId() {
 		return this.id;
 	}

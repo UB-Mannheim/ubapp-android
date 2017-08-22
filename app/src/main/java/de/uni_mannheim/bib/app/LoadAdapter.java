@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -94,6 +95,7 @@ public class LoadAdapter extends BaseAdapter {
 		holder.iv_signal.setBackgroundResource(Integer
 				.valueOf(resids[position]));
 		// holder.tv_name.setText(names[position]);
+
 		// Log.v("Logging", "Position: " + position + " Name: " + names[position]);
 
 		switch(position) {
@@ -117,7 +119,7 @@ public class LoadAdapter extends BaseAdapter {
 	}
 	
 	protected String addEmptyChars(String workload) {
-		// function that sums up load digits to 3 chars
+		// Function that sums up load digits to 3 chars
 		
 		String load = "";
 		

@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- StartUpActivity chooses Activity selected in Configuration by User -->
         <activity
             android:name="de.uni_mannheim.bib.app.StartUpActivity"
             android:label="@string/title_activity_start_up"
@@ -34,6 +35,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.uni_mannheim.bib.app.MainActivity" />
         </activity>
+        <!-- WebviewActivity shows mobile Website and Catalogue -->
         <activity
             android:name="de.uni_mannheim.bib.app.WebviewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
@@ -43,6 +45,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.uni_mannheim.bib.app.MainActivity" />
         </activity>
+        <!-- BlogActivity shows News -->
         <activity
             android:name="de.uni_mannheim.bib.app.BlogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
@@ -52,6 +55,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.uni_mannheim.bib.app.MainActivity" />
         </activity>
+        <!-- BlogActivity shows free Seats -->
         <activity
             android:name="de.uni_mannheim.bib.app.LoadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
@@ -61,6 +65,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.uni_mannheim.bib.app.MainActivity" />
         </activity>
+        <!-- ConfigActivity shows app specific Settings -->
         <activity
             android:name="de.uni_mannheim.bib.app.ConfigActivity"
             android:label="@string/title_activity_config"
@@ -69,6 +74,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.uni_mannheim.bib.app.MainActivity" />
         </activity>
+        <!-- HelpActivity shows Information and Howtos -->
         <activity
             android:name="de.uni_mannheim.bib.app.HelpActivity"
             android:label="@string/title_activity_help"
@@ -77,6 +83,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.uni_mannheim.bib.app.MainActivity" />
         </activity>
+        <!-- OfflineActivity shows Error Site if no Network available in Webview -->
         <activity
             android:name="de.uni_mannheim.bib.app.OfflineActivity"
             android:label="@string/title_activity_offline"
@@ -85,40 +92,25 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.uni_mannheim.bib.app.MainActivity" />
         </activity>
-        <activity
+        <!-- EmptyActivity is no more longer used -->
+        <!-- activity
             android:name="de.uni_mannheim.bib.app.EmptyActivity"
             android:label="@string/title_activity_empty" >
-        </activity>
-        <activity
+        </activity -->
+        <!-- TestDBActivity2 is no more longer used -->
+        <!-- activity
             android:name="de.uni_mannheim.bib.app.TestDBActivity2"
             android:label="@string/title_activity_test_dbactivity2" >
-        </activity>
-        <activity
+        </activity -->
+        <!-- SettingsActivity is no more longer used -->
+        <!-- activity
             android:name="de.uni_mannheim.bib.app.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName="de.uni_mannheim.bib.app.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="de.uni_mannheim.bib.app.MainActivity" />
-        </activity>
-        <!-- 
-        <activity
-            android:name="de.uni_mannheim.bib.app.BlogActivity"
-            android:label="@string/title_activity_blog"
-            android:parentActivityName="de.uni_mannheim.bib.app.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.uni_mannheim.bib.app.MainActivity" />
-        </activity>
-        <activity
-            android:name="de.uni_mannheim.bib.app.LoadActivity"
-            android:label="@string/title_activity_load"
-            android:parentActivityName="de.uni_mannheim.bib.app.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.uni_mannheim.bib.app.MainActivity" />       
-        </activity>
-         -->
+        </activity -->
     </application>
 
 </manifest>

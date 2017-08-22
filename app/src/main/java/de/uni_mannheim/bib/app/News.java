@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -25,7 +26,7 @@ public class News {
 	String url;
 	int post_id;
 
-	// constructors
+	// Constructors
 	public News() {
 	}
 
@@ -44,7 +45,7 @@ public class News {
 		this.post_id = post_id;
 	}
 
-	// setters
+	// Setters
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -65,7 +66,7 @@ public class News {
 		this.post_id = post_id;
 	}
 
-	// getters
+	// Getters
 	public long getId() {
 		return this.id;
 	}

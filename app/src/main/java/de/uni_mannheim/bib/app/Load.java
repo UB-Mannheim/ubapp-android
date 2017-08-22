@@ -3,6 +3,7 @@
  *
  * Author:
  *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Last modified on 2016-03-15
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
@@ -23,7 +24,7 @@ public class Load {
 	String sector;
 	int load;
 
-	// constructors
+	// Constructors
 	public Load() {
 	}
 
@@ -38,7 +39,7 @@ public class Load {
 		this.load = load;
 	}
 
-	// setters
+	// Setters
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -51,7 +52,7 @@ public class Load {
 		this.load = load;
 	}
 
-	// getters
+	// Getters
 	public long getId() {
 		return this.id;
 	}
