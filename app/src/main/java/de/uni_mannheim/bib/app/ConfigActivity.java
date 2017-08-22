@@ -371,6 +371,8 @@ public class ConfigActivity<E> extends ActionBarActivity {
 	}
 
 	// generalized "Button onClick Listener" (not used. just prepared)
+
+	/*
 	public void addListenerOnButton(final Button button, final RadioGroup rgroup) {
 
 		button.setOnClickListener(new View.OnClickListener() {
@@ -401,7 +403,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 
 		});
 
-	}
+	} */
 
 	public boolean existsDB(String dbname) {
 

@@ -168,7 +168,8 @@ public class MainAdapter extends BaseAdapter {
 						openWebViewWithUrl(
 								context,
 								WebviewActivity.class,
-								"http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE"+primo_lang,
+								// "http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE"+primo_lang,
+								"http://primo-49man.hosted.exlibrisgroup.com/primo-explore/search?sortby=rank&vid=MAN_UB&lang="+primo_lang,
 								// "http://primo-test.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE",
 								// "http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_KB",
 								"catalogue");

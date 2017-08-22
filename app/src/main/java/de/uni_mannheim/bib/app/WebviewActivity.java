@@ -49,11 +49,15 @@ import android.widget.Toast;
 public class WebviewActivity extends ActionBarActivity {
 
 	// Speech Input
+	/*
+	inserted new Primo URL, therefore disabled button for speech input
+
 	private TextView txtSpeechInput;
 	private String searchTerm;
 	private ImageButton btnSpeak;
 	private final int REQ_CODE_SPEECH_INPUT = 100;
-	    
+	*/
+
     // Logs
 	private boolean log_enabled = false;
 	
@@ -96,24 +100,30 @@ public class WebviewActivity extends ActionBarActivity {
 
 
 		// Speech Input
-		
+/*
+inserted new Primo URL, therefore disabled button for speech input
+
 		// txtSpeechInput = (TextView) findViewById(R.id.textView1);
-        btnSpeak = (ImageButton) findViewById(R.id.imageButton1);
+
+		btnSpeak = (ImageButton) findViewById(R.id.imageButton1);
  
         // webView = (WebView) findViewById(R.id.webView1);
         // webView.loadUrl("http://www.google.de");
-        
-        btnSpeak.setOnClickListener(new View.OnClickListener() {
+
+		btnSpeak.setOnClickListener(new View.OnClickListener() {
  
             @Override
             public void onClick(View v) {
-                promptSpeechInput();
+				promptSpeechInput();
             }
         });
         
         // Generally hide Speech Input
-     	btnSpeak.setVisibility(View.INVISIBLE);
-		
+     	// inserted new Primo URL, therefore disabled button for speech input
+		// btnSpeak.setVisibility(View.INVISIBLE);
+		btnSpeak.setVisibility(View.GONE);
+
+*/
 		// get common parameters
 		url = getIntent().getExtras().getString("url");
 		action = getIntent().getExtras().getString("action");
@@ -150,6 +160,10 @@ public class WebviewActivity extends ActionBarActivity {
 	/**
      * Showing google speech input dialog
      * */
+
+	/*
+	inserted new Primo URL, therefore disabled button for speech input
+
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -165,10 +179,15 @@ public class WebviewActivity extends ActionBarActivity {
                     Toast.LENGTH_SHORT).show();
         }
     }
- 
+ 	*/
+
     /**
      * Receiving speech input
      * */
+
+    /*
+    inserted new Primo URL, therefore disabled button for speech input
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -199,7 +218,7 @@ public class WebviewActivity extends ActionBarActivity {
                 					"&vl%28freeText0%29="+searchTerm +
                 					"&fn=search&vid=MAN_MOBILE&voiceInput=TRUE");
 
-                	// watch out for primo server logs in 
+					// watch out for primo server logs in
                 	// /exlibris/primo/p4_1/ng/primo/home/profile/search/log/localhost_access_log.2015-06-08.txt
                 
                 }
@@ -210,6 +229,7 @@ public class WebviewActivity extends ActionBarActivity {
  
         }
     }
+	*/
 
 	// preventing reload of webview on rotate
 	@Override
@@ -250,6 +270,9 @@ public class WebviewActivity extends ActionBarActivity {
 		}
 		
 		// actionbar alternative menu only in webview->website
+		/*
+		as the new website was inserted, the old menu is not longer needed
+
 		if (action.equals("www")) {
 
 			// inflate the menu (adds items to the action bar if it is present)
@@ -266,9 +289,13 @@ public class WebviewActivity extends ActionBarActivity {
 		if (action.equals("catalogue")) {
 			MenuInflater inflater = getMenuInflater();
 			inflater.inflate(R.menu.main_activity_actions, menu);
-			
+
 			// http://www.techrepublic.com/article/pro-tip-use-a-custom-layout-to-badge-androids-action-bar-menu-items/
 		}
+		*/
+
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main_activity_actions, menu);
 
 		return super.onCreateOptionsMenu(menu);
 	}
@@ -486,11 +513,21 @@ public class WebviewActivity extends ActionBarActivity {
 	
 				// if(url.contains("mobile")) {
 				if (action.equals("www")) {
-					
+/*
 					webView.loadUrl("javascript:(function() { "
 							+ "document.getElementById('mobile_trailer').style.display = 'none'; "
 							+ "})()");
-					
+*/
+					webView.loadUrl("javascript:(function() { "
+							+ "var x = document.getElementsByClassName('navbar-header'); "
+							+ "x[0].style.backgroundColor = 'white'; "
+							+ "var y = document.getElementsByClassName('navbar-brand'); "
+							+ "y[0].style.display = 'none'; "
+							/*
+							+ "document.getElementById('navbar-button').style.display = 'none'; "
+							*/
+							+ "})()");
+
 					// additional menu items in actionbar
 	
 				}
@@ -501,22 +538,28 @@ public class WebviewActivity extends ActionBarActivity {
 				// if(url.contains("primo_library")) {
 				if (action.equals("catalogue")
 						|| (url.contains("primo_library") && url
-								.contains("MAN_MOBILE"))) {
+								.contains("MAN_UB"))) {
 					
 					// check if Speech Input Microphone should be displayed
+					/*
+					inserted new Primo URL, therefore disabled button for speech input
+
 					if(webView.getUrl().contains("pds")) {
 						btnSpeak.setVisibility(View.INVISIBLE);
 					} else {
 						btnSpeak.setVisibility(View.VISIBLE);
 					}
-					
+					*/
 					
 					// document.getElementById('katalog').style.display = 'none';
 					// document.getElementById('katalogUBSchriftzug').style.display
 					// = 'none';
 					// document.getElementById('ub_mini_logo').style.display =
 					// 'none';
-	
+
+					/*
+					inserted new Primo URL, therefore disabled javascript actions for old UI
+
 					webView.loadUrl("javascript:(function() { "
 							+ "document.getElementById('exlidUserAreaTile').style.padding = '10px'; "
 							+ "document.getElementById('logos').style.visibility = 'hidden'; "
@@ -528,6 +571,13 @@ public class WebviewActivity extends ActionBarActivity {
 							+ "document.getElementById('exlidHeaderContainer').style.height = '100px'; "
 							// + "document.getElementById('exlidUserName').style.top = '10px'; "
 							+ "})()");
+					 */
+
+					webView.loadUrl("javascript:(function() { "
+							+ "var x = document.getElementsByClassName('ub-logo'); "
+					        + "x[0].style.visibility = 'hidden'; "
+							+ "})()");
+
 				}
 
 				

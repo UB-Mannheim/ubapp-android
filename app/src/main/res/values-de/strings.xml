@@ -106,6 +106,9 @@
     <string name="dialog_configActivity_startup_changed__later">Später</string>
     <string name="dialog_configActivity_restart_app__message">Starte App neu ...</string>
     <string name="dialog_configActivity_saved_settings__message">Konfiguration gespeichert</string>
+    <string name="cache_enabled">Cache eingeschaltet</string>
+    <string name="load_intervall">Ladeintervall an</string>
+    <string name="news_count">Anzahl der Einträge</string>
 
     <!-- Dialog_Offline -->
     <string name="dialog_offlineActivity_connection_error__title">Verbindungsfehler</string>
