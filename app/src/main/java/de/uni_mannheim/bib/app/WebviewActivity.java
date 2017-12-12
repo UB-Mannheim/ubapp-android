@@ -446,7 +446,8 @@ inserted new Primo URL, therefore disabled button for speech input
 		entries[0] = "";
 		// entries[1] = "http://www.bib.uni-mannheim.de/mobile/"+ lang
 		// +"/133.html";
-		entries[1] = "http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE";
+		// entries[1] = "http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE";
+		entries[1] = "https://primo-49man.hosted.exlibrisgroup.com/primo-explore/search?sortby=rank&vid=MAN_UB&lang=de_DE";
 		// entries[1] = "http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_KB";
 		entries[2] = "http://www.bib.uni-mannheim.de/mobile/" + lang
 				+ "/5.html";
@@ -572,6 +573,7 @@ inserted new Primo URL, therefore disabled button for speech input
 					webView.loadUrl("javascript:(function() { "
 							+ "var x = document.getElementsByClassName('ub-logo'); "
 					        + "x[0].style.visibility = 'hidden'; "
+							// + "x[0].style.display = 'none'; "
 							+ "})()");
 
 }
