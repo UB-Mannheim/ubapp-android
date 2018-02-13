@@ -2,7 +2,7 @@
  * Copyright (C) 2014 Universitätsbibliothek Mannheim
  *
  * Author:
- *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Universitätsbibliothek Mannheim <admin@bib.uni-mannheim.de>
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 

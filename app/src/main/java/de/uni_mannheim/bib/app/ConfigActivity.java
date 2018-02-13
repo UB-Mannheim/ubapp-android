@@ -2,7 +2,7 @@
  * Copyright (C) 2014 Universitätsbibliothek Mannheim
  *
  * Author:
- *    Alexander Wagner <alexander.wagner@bib.uni-mannheim.de>
+ *    Universitätsbibliothek Mannheim <admin@bib.uni-mannheim.de>
  *    Last modified on 2016-03-15
  * 
  * 
