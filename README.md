@@ -1,6 +1,6 @@
 # ubapp-android
 
-UB Mannheim - Mannheim University Library App for iOS Devices
+UB Mannheim - Mannheim University Library App for Android Devices
 
 With the library app you have all library resources right at your fingertips. The Mannheim University Library has launched an app which allows students, staff members, and guests to access the central library services on the go.
 
