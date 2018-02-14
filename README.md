@@ -8,3 +8,7 @@ You can search books, journals, films, recordings, and much more using Primo or 
 
 The Android app can be downloaded free of charge from the Google-Play Store: 
 https://play.google.com/store/apps/details?id=de.uni_mannheim.bib.app
+
+![Main Window](https://rawgit.com/UB-Mannheim/ubma-screenshots/master/apps/ubapp-android-main.png)
+![Contact Window](https://rawgit.com/UB-Mannheim/ubma-screenshots/master/apps/ubapp-android-contact.png)
+![Catalog Window](https://rawgit.com/UB-Mannheim/ubma-screenshots/master/apps/ubapp-android-catalog.png)
