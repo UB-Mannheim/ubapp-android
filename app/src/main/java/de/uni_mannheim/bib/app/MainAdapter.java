@@ -2,7 +2,7 @@
  * Copyright (C) 2014 Universitätsbibliothek Mannheim
  *
  * Author:
- *    Universitätsbibliothek Mannheim <admin@bib.uni-mannheim.de>
+ *    Universitätsbibliothek Mannheim <sysadmin@bib.uni-mannheim.de>
  * 
  * 
  * This is free software licensed under the terms of the GNU GPL, 
