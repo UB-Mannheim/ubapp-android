@@ -132,7 +132,7 @@ public class OfflineActivity extends ActionBarActivity {
 	
 	@Override
 	public void onBackPressed() {
-		// Exits app, no more activites in stack?
+		// Exits app, no more activities in stack?
 		// moveTaskToBack(true);
 		
 		NavUtils.navigateUpFromSameTask(this);

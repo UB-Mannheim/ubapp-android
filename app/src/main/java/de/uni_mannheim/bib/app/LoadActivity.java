@@ -711,7 +711,7 @@ public class LoadActivity extends ActionBarActivity {
 	
 	@Override
 	public void onBackPressed() {
-		// exits app, no more activites in stack?
+		// exits app, no more activities in stack?
 		// moveTaskToBack(true);
 		
 		NavUtils.navigateUpFromSameTask(this);
