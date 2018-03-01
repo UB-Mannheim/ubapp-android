@@ -233,7 +233,7 @@ public class StartUpActivity extends Activity {
 
 				openWebViewWithUrl(this.getApplicationContext(),
 						WebviewActivity.class,
-						"http://www.bib.uni-mannheim.de/mobile/de/1.html",
+						"http://www.bib.uni-mannheim.de",
 						"www");
 			}
 
@@ -241,8 +241,7 @@ public class StartUpActivity extends Activity {
 				openWebViewWithUrl(
 						this.getApplicationContext(),
 						WebviewActivity.class,
-						// "http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE",
-						"https://primo-49man.hosted.exlibrisgroup.com/primo-explore/search?sortby=rank&vid=MAN_UB&lang=de_DE",
+						"https://primo.bib.uni-mannheim.de",
 						"catalogue");
 			}
 

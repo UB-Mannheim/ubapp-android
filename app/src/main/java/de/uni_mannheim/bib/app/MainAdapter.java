@@ -141,7 +141,7 @@ public class MainAdapter extends BaseAdapter {
 						openWebViewWithUrl(
 								context,
 								WebviewActivity.class,
-								"http://www.bib.uni-mannheim.de/mobile/" + lang + "/1.html",
+								"http://www.bib.uni-mannheim.de",
 								// "http://anyplace.cs.ucy.ac.cy/viewer/",
 								"www");
 					} else {
@@ -156,9 +156,9 @@ public class MainAdapter extends BaseAdapter {
 				String primo_lang = "";
 
 				if (lang.equals("en")) {
-					primo_lang = "&prefLang=en_US";
+					primo_lang = "en_US";
 				} else {
-					primo_lang = "&prefLang=de_DE";
+					primo_lang = "de_DE";
 				}
 
 				// onClick >> KATALOG
@@ -168,10 +168,7 @@ public class MainAdapter extends BaseAdapter {
 						openWebViewWithUrl(
 								context,
 								WebviewActivity.class,
-	//"http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE"+primo_lang,
-	"http://primo-49man.hosted.exlibrisgroup.com/primo-explore/search?sortby=rank&vid=MAN_UB&lang="+primo_lang,
-//"http://primo-test.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_MOBILE",
-								// "http://primo.bib.uni-mannheim.de/primo_library/libweb/action/search.do?vid=MAN_KB",
+								"https://primo.bib.uni-mannheim.de",
 								"catalogue");
 					} else {
 
@@ -191,16 +188,6 @@ public class MainAdapter extends BaseAdapter {
 				if (result[position].equals("Freie Plätze") || result[position].equals("Free Seats")) {
 					openWebViewWithUrl(context, LoadActivity.class, "", "");
 				}
-
-				// } else {
-
-				// setConfig Network=false
-				// preferencesEditor.putString("NetworkConnectionAvailable",
-				// "false");
-				// preferencesEditor.commit();
-
-				// openWebViewWithUrl(context, OfflineActivity.class, "", "");
-				// }
 
 			}
 
