@@ -1,20 +1,12 @@
 /*
- * Copyright (C) 2014 Universitätsbibliothek Mannheim
+ * Copyright (C) 2014-2018 Universitätsbibliothek Mannheim
  *
- * Author:
- *    Universitätsbibliothek Mannheim <sysadmin@bib.uni-mannheim.de>
- *    Last modified on 2016-03-15
- * 
- * 
- * This is free software licensed under the terms of the GNU GPL, 
+ * This is free software licensed under the terms of the GNU GPL,
  * version 3, or (at your option) any later version.
  * See <http://www.gnu.org/licenses/> for more details.
  *
- *
- * Shows wlan load of library sections as a list. 
+ * Shows wlan load of library sections as a list.
  * This may be online or database content.
- * 
- * 
  */
 
 package de.uni_mannheim.bib.app;
@@ -51,7 +43,7 @@ public class LoadActivity extends ActionBarActivity {
 	private LoadActivity la = this;
 	private GridView gv;
 	// private Menu menu;
-	
+
 	Context context;
 	ProgressDialog progressBar;
 	private int progressBarStatus = 0;
@@ -62,13 +54,13 @@ public class LoadActivity extends ActionBarActivity {
 	private String network_state;
 	private boolean srcFromWWW;
 	private boolean srcFromDB;
-	
+
 	private Date date;
 	private Calendar cal;
 	private String strdate;
 
 	boolean db_empty = true;
-	
+
 	String[] loadList = new String[6];
 	String[] resIdList = new String[6];
 	String[] nameList = new String[6];
@@ -77,17 +69,17 @@ public class LoadActivity extends ActionBarActivity {
 	public void onCreate(Bundle savedInstanceState) {
 
 		ActivityRegistry.register(this);
-		
+
 		srcFromWWW = false;
 		srcFromDB = false;
-		
+
 		if(log_enabled) {
 			Log.e(this.getClass().getName().toUpperCase().toString(), " ... LOADED");
 		}
-		
-		// Toast.makeText(getApplicationContext(), this.getClass().getName(), 
+
+		// Toast.makeText(getApplicationContext(), this.getClass().getName(),
 				// Toast.LENGTH_SHORT).show();
-		
+
 		// Screen Layout for Main Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_load);
@@ -106,11 +98,11 @@ public class LoadActivity extends ActionBarActivity {
 			public void onClick(View v) {
 
 				NetworkChecker nc = new NetworkChecker();
-				
+
 				SharedPreferences settings = LoadActivity.this.getSharedPreferences(
 						"preferences", 0);
 				SharedPreferences.Editor preferencesEditor = settings.edit();
-	
+
 				if (nc.isConnected(LoadActivity.this.getApplicationContext())) {
 
 					preferencesEditor.putString("NetworkConnectionAvailable",
@@ -121,7 +113,7 @@ public class LoadActivity extends ActionBarActivity {
 							"false");
 					preferencesEditor.commit();
 				}
-				
+
 				// Network State
 				network_state = settings.getString(
 						"NetworkConnectionAvailable", "false");
@@ -181,7 +173,7 @@ public class LoadActivity extends ActionBarActivity {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				
+
 				dsLoad = null;
 
 				// Log Message
@@ -220,7 +212,7 @@ public class LoadActivity extends ActionBarActivity {
 				while (progressBarStatus < 100) {
 
 				// Log.e(" ---------- DEBUG ---------- ", "While progressBarStatus loading");
-					
+
 					// Log Message
 					if (log_enabled) {
 						Log.e(this.getClass().toString(),
@@ -239,20 +231,20 @@ public class LoadActivity extends ActionBarActivity {
 		 * ****************************************************************************
 		 * network_state.equals("true")
 		 * ****************************************************************************
-		 */		
-					
+		 */
+
 					// Get Load from Online Resource
 					List<Load> loadWWW = null;
 					if (network_state.equals("true")) {
-				
+
 						// Log.e(" ---------- DEBUG ---------- ", "network_state = " + network_state);
-						
+
 						loadWWW = dc.getLoadFromWWW();
 						srcFromWWW = true;
-						
+
 						strdate = "";
 						strdate = getFormattedDate();
-						
+
 						// Log.e(" ---------- DEBUG ---------- ", "WWW Date sets tv to " + strdate);
 					}
 
@@ -261,33 +253,33 @@ public class LoadActivity extends ActionBarActivity {
 		 * db_mode_on.equals("true")
 		 * ****************************************************************************
 		*/
-					
+
 					// Get Load from DB
 					List<Load> loadDB = null;
 					if (db_mode_on.equals("true")) {
-						
+
 					// Log.e(" ---------- DEBUG ---------- ", "db_mode = on");
-					
+
 						if (log_enabled) {
 							Log.e(this.getClass().toString(),
 									"loadDB pending ...");
 						}
 						loadDB = dc.getLoadFromDB(dbh);
 						srcFromDB = true;
-						
+
 						DatabaseHelper db = new DatabaseHelper(
 								LoadActivity.this);
-						
+
 						List<History> hList = db.getAllHistory();
-						
+
 						if(network_state.equals("false")) {
 							strdate = "";
 							strdate = getFormattedDateFromDB(hList.get(1).last_update);
-							
+
 							// Log.e(" ---------- DEBUG ---------- ", "DB Date sets tv to " + strdate);
 						}
 					}
-		
+
 		/**
 		 * ****************************************************************************
 		 * dsLoad empty ?
@@ -297,7 +289,7 @@ public class LoadActivity extends ActionBarActivity {
 					if (dsLoad == null) {
 
 					// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> empty");
-						
+
 						// Create Global Load List
 						dsLoad = dc.getLoadAccordingToSyncState(
 								getApplicationContext(), network_helper_state,
@@ -305,9 +297,9 @@ public class LoadActivity extends ActionBarActivity {
 
 						// If Database is Off
 						if (db_mode_on.equals("false")) {
-						
+
 							// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> empty && db_mode off");
-							
+
 							try {
 								// Thread.currentThread().interrupt();
 								Thread.currentThread().setPriority(
@@ -317,12 +309,12 @@ public class LoadActivity extends ActionBarActivity {
 								Log.e("", "Error on interrupt " + e);
 							}
 						}
-						
+
 
 					} else {
-						
+
 				// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> filled");
-						
+
 						// Count up ProgressBar
 						// progressBarStatus += 1;
 
@@ -336,8 +328,8 @@ public class LoadActivity extends ActionBarActivity {
 						}
 
 					}
-					
-					
+
+
 
 					// Update the progress bar
 					progressBarHandler.post(new Runnable() {
@@ -360,186 +352,130 @@ public class LoadActivity extends ActionBarActivity {
  * loading finished
  * ****************************************************************************
 */
-				
+
 				// Ok, Action is fulfilled
-				if (progressBarStatus >= 100) {
-				
+
 				// Log.e(" ---------- DEBUG ---------- ", "progressBarStatus loaded (loading finished)");
-					
+
+				// Log Message
+				if (log_enabled) {
+					Log.e(this.getClass().toString(), "ProgressBar Full");
+				}
+
+				// Sleep some seconds, so that you can see the 100%
+				try {
+					// Thread.sleep(2000);
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+				// If Global Load available
+				if (dsLoad != null) {
+
+				// Log.e(" ---------- DEBUG ---------- ", "progessBar full && dataset <dsLoad> filled");
+
 					// Log Message
 					if (log_enabled) {
-						Log.e(this.getClass().toString(), "ProgressBar Full");
+						int s = dsLoad.size();
+						Log.e("SizeOf dsLoad:", String.valueOf(s));
+
+						int i = 0;
+
+						for (Load d : dsLoad) {
+							Log.e("dsLoad: ", String.valueOf(d.getId())
+									+ " - " + String.valueOf(d.getLoad())
+									+ " - " + d.getSector());
+						}
 					}
 
-					// Sleep some seconds, so that you can see the 100%
-					try {
-						// Thread.sleep(2000);
-						Thread.sleep(1);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
+					// If DB Mode on update History
+					if (db_mode_on.equals("true") &&  (srcFromWWW==true)) {
+
+					// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> filled && db_mode = on");
+
+						History hload = new History(2, 2, dbh.getDateTime());
+						dbh.updateHistory(hload);
+
+						// Log.e(" ---------- DEBUG ---------- ", "updating time in db");
 					}
 
-					// If Global Load available
-					if (dsLoad != null) {
-
-					// Log.e(" ---------- DEBUG ---------- ", "progessBar full && dataset <dsLoad> filled");
-						
-						// Log Message
-						if (log_enabled) {
-							int s = dsLoad.size();
-							Log.e("SizeOf dsLoad:", String.valueOf(s));
-
-							int i = 0;
-
-							for (Load d : dsLoad) {
-								Log.e("dsLoad: ", String.valueOf(d.getId())
-										+ " - " + String.valueOf(d.getLoad())
-										+ " - " + d.getSector());
-							}
-						}
-
-						// If DB Mode on update History
-						if (db_mode_on.equals("true") &&  (srcFromWWW==true)) {
-							
-						// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> filled && db_mode = on");
-							
-							History hload = new History(2, 2, dbh.getDateTime());
-							dbh.updateHistory(hload);
-							
-							// Log.e(" ---------- DEBUG ---------- ", "updating time in db");
-						}
-
-					// Log.e(" ---------- DEBUG ---------- ", "fill temporary List");
-
-						
-						// Fill Temporary Lists
-						for (int i = 0; i < dsLoad.size(); i++) {
+				// Log.e(" ---------- DEBUG ---------- ", "fill temporary List");
 
 
-							int load = dsLoad.get(i).getLoad();
-							loadList[i] = String.valueOf(load);
+					// Fill Temporary Lists
+					for (int i = 0; i < dsLoad.size(); i++) {
 
-							int id = setLight(dsLoad.get(i).getLoad());
-							resIdList[i] = String.valueOf(id);
+						int load = dsLoad.get(i).getLoad();
+						loadList[i] = String.valueOf(load);
 
-							String name = dsLoad.get(i).getSector();
-							nameList[i] = name;
+						int id = setLight(dsLoad.get(i).getLoad());
+						resIdList[i] = String.valueOf(id);
+
+						String name = dsLoad.get(i).getSector();
+						nameList[i] = name;
 
 // Log.e(" ---------- DEBUG ---------- ", String.valueOf(i) + " >> " + load + " | " +  name);
 // Log.e(" ---------- DEBUG ---------- ", "network_state: "+network_state + " db_mode_on: "+ db_mode_on);
-							
-							if(load!=-1) {
-								db_empty = false;
-							}
 
-							if(i==5 && db_empty) {
-							// Log.e(" ---------- DEBUG ---------- ", "db_empty");
-								/*								
-								Looper.prepare();
-								Looper.loop();
-								*/
-								/*
-								
-								*/
-							}
+						if(load!=-1) {
+							db_empty = false;
 						}
 
-						// Fill Adapter
-						gv.post(new Runnable() {
-							@Override
-							public void run() {
+						if(i==5 && db_empty) {
+						// Log.e(" ---------- DEBUG ---------- ", "db_empty");
+							/*
+							Looper.prepare();
+							Looper.loop();
+							*/
+							/*
 
-								// Log Message
-								if (log_enabled) {
-									Log.e(this.getClass().toString(), "GET 0"
-											+ loadList[1]);
-								}
+							*/
+						}
+					}
 
-// Log.e(" ---------- DEBUG ---------- ", "Starting inner runnable");
-								
-								// if (((loadList[0].length() == 0) && (db_mode_on
-								//		.equals("true")) && !(network_state.equals("true"))) || (
-								
-								if ( network_state.equals("false") && db_mode_on.equals("true") && 
-																
-								// network_state.equals("false")
-								// Timestamp in DB is initial Timestamp
-								
-								
-										// Init Entries : load = null
-										((loadList[0].equals("-1"))
-												&& (loadList[1].equals("-1"))
-												&& (loadList[2].equals("-1"))
-												&& (loadList[3].equals("-1"))
-												&& (loadList[4].equals("-1")) 
-												&& (loadList[5].equals("-1")))
-												//)
+					// Fill Adapter
+					gv.post(new Runnable() {
+						@Override
+						public void run() {
 
-								) {
-								
-// Log.e(" ---------- DEBUG ---------- ", "(loadList = 0 && db_mode = on && network_state=true) OR (loadList elements = -1)");
-
-									new AlertDialog.Builder(
-											LoadActivity.this)
-
-											.setTitle(getString(R.string.dialog_loadActivity_cache_state__title))
-											.setMessage(getString(R.string.dialog_loadActivity_cache_state__message))
-											.setPositiveButton(
-													getString(R.string.dialog_loadActivity_cache_state__positive),
-													new DialogInterface.OnClickListener() {
-														@Override
-														public void onClick(
-																DialogInterface dialog,
-																int which) {
-															Intent intent = new Intent(
-																	LoadActivity.this,
-																	MainActivity.class);
-															startActivity(intent);
-														}
-													}).show();
-
-// Log.e(" ---------- DEBUG ---------- ", network_state);									
-// Log.e(" ---------- DEBUG ---------- ", "dialog shown, (BIG IF)");
-
-								} else {
-									
-// Log.e(" ---------- DEBUG ---------- ", "filling gridview (ELSE BIG IF)");
-									
-									gv.setAdapter(new LoadAdapter(la, loadList,
-											resIdList, nameList));
-
-									TextView tv2 = (TextView) findViewById(R.id.textView2);
-									tv2.setText("");
-									tv2.setText(strdate);
-
-// Log.e(" ---------- DEBUG ---------- ", "gridview filled");				
-
-									// Close Loading Dialog
-									// progressBar.dismiss();
-									// GridView visibility on
-									gv.setVisibility(View.VISIBLE);
-								}
+							// Log Message
+							if (log_enabled) {
+								Log.e(this.getClass().toString(), "GET 0"
+										+ loadList[1]);
 							}
 
-						});
+// Log.e(" ---------- DEBUG ---------- ", "Starting inner runnable");
 
-					// If exist Global Load NOT available
-					} else {
+							// if (((loadList[0].length() == 0) && (db_mode_on
+							//		.equals("true")) && !(network_state.equals("true"))) || (
 
-// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> filled");
-						
-						gv.post(new Runnable() {
-							@Override
-							public void run() {
+							if ( network_state.equals("false") && db_mode_on.equals("true") &&
 
-								// Close Loading Dialog
-								progressBar.dismiss();
+							// network_state.equals("false")
+							// Timestamp in DB is initial Timestamp
 
-								new AlertDialog.Builder(LoadActivity.this)
-										.setTitle(getString(R.string.dialog_loadActivity_connection_error__title))
-										.setMessage(getString(R.string.dialog_loadActivity_connection_error__message))
+
+									// Init Entries : load = null
+									((loadList[0].equals("-1"))
+											&& (loadList[1].equals("-1"))
+											&& (loadList[2].equals("-1"))
+											&& (loadList[3].equals("-1"))
+											&& (loadList[4].equals("-1"))
+											&& (loadList[5].equals("-1")))
+											//)
+
+							) {
+
+// Log.e(" ---------- DEBUG ---------- ", "(loadList = 0 && db_mode = on && network_state=true) OR (loadList elements = -1)");
+
+								new AlertDialog.Builder(
+										LoadActivity.this)
+
+										.setTitle(getString(R.string.dialog_loadActivity_cache_state__title))
+										.setMessage(getString(R.string.dialog_loadActivity_cache_state__message))
 										.setPositiveButton(
-												getString(R.string.dialog_loadActivity_connection_error__positive),
+												getString(R.string.dialog_loadActivity_cache_state__positive),
 												new DialogInterface.OnClickListener() {
 													@Override
 													public void onClick(
@@ -552,14 +488,66 @@ public class LoadActivity extends ActionBarActivity {
 													}
 												}).show();
 
+// Log.e(" ---------- DEBUG ---------- ", network_state);
+// Log.e(" ---------- DEBUG ---------- ", "dialog shown, (BIG IF)");
+
+							} else {
+
+// Log.e(" ---------- DEBUG ---------- ", "filling gridview (ELSE BIG IF)");
+
+								gv.setAdapter(new LoadAdapter(la, loadList,
+										resIdList, nameList));
+
+								TextView tv2 = (TextView) findViewById(R.id.textView2);
+								tv2.setText("");
+								tv2.setText(strdate);
+
+// Log.e(" ---------- DEBUG ---------- ", "gridview filled");
+
+								// Close Loading Dialog
+								// progressBar.dismiss();
+								// GridView visibility on
+								gv.setVisibility(View.VISIBLE);
 							}
-						});
-					}
+						}
 
-					// Close Loading Dialog
-					progressBar.dismiss();
+					});
 
-				} // if progressBarStatus >= 100
+				// If exist Global Load NOT available
+				} else {
+
+// Log.e(" ---------- DEBUG ---------- ", "dataset <dsLoad> filled");
+
+					gv.post(new Runnable() {
+						@Override
+						public void run() {
+
+							// Close Loading Dialog
+							progressBar.dismiss();
+
+							new AlertDialog.Builder(LoadActivity.this)
+									.setTitle(getString(R.string.dialog_loadActivity_connection_error__title))
+									.setMessage(getString(R.string.dialog_loadActivity_connection_error__message))
+									.setPositiveButton(
+											getString(R.string.dialog_loadActivity_connection_error__positive),
+											new DialogInterface.OnClickListener() {
+												@Override
+												public void onClick(
+														DialogInterface dialog,
+														int which) {
+													Intent intent = new Intent(
+															LoadActivity.this,
+															MainActivity.class);
+													startActivity(intent);
+												}
+											}).show();
+
+						}
+					});
+				}
+
+				// Close Loading Dialog
+				progressBar.dismiss();
 
 			} // end void run
 
@@ -571,9 +559,9 @@ public class LoadActivity extends ActionBarActivity {
 
 
 	/*
-	 * 
+	 *
 	 * @Override public boolean onOptionsItemSelected(MenuItem item) {
-	 * 
+	 *
 	 * switch (item.getItemId()) { case android.R.id.home: // This ID represents
 	 * the Home or Up button. In the case of this // activity, the Up button is
 	 * shown. Use NavUtils to allow users // to navigate up one level in the
@@ -581,11 +569,11 @@ public class LoadActivity extends ActionBarActivity {
 	 * Android Design: // //
 	 * http://developer.android.com/design/patterns/navigation.html#up-vs-back
 	 * // NavUtils.navigateUpFromSameTask(this);
-	 * 
+	 *
 	 * return true;
-	 * 
+	 *
 	 * } return super.onOptionsItemSelected(item);
-	 * 
+	 *
 	 * }
 	 */
 
@@ -613,7 +601,7 @@ public class LoadActivity extends ActionBarActivity {
 		} else {
 			lights = R.drawable.sign_red;
 		}
-		
+
 		return lights;
 	}
 
@@ -644,25 +632,25 @@ public class LoadActivity extends ActionBarActivity {
 
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public String getFormattedDate(){
-		
+
 		String dat = "";
-		
+
 		date = new Date();
 		cal = Calendar.getInstance();
 		cal.setTime(date);
-		
+
 		int year = cal.get(Calendar.YEAR);
 		// Hint: month array starting with 0 (January = 0)
 		int month = cal.get(Calendar.MONTH);
 		int day = cal.get(Calendar.DATE);
 		int hours = cal.get(Calendar.HOUR_OF_DAY);
 		int min = cal.get(Calendar.MINUTE);
-		
+
 		String month_string = "";
 		month_string = String.valueOf(month + 1);
-		
+
 		String min_string = String.valueOf(min);
 		if(min<9) {
 			min_string = "0" + String.valueOf(min);
@@ -702,35 +690,35 @@ public class LoadActivity extends ActionBarActivity {
 			// cuts leading 0
 			day = day.substring(1);
 		}
-		
+
 		String formatted_date = day + "." + date[1] + "."
 				+ date[0] + ", " + time[0] + ":" + time[1];
 
 		return formatted_date;
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		// exits app, no more activities in stack?
 		// moveTaskToBack(true);
-		
+
 		NavUtils.navigateUpFromSameTask(this);
-        
+
 	}
-	
+
 	@Override
 	public void onRestart() {
 		super.onRestart();
-		
+
 		// Log.e("--------XXXXXXXXXXXXXXXXx-----------", "onRestart");
 		SharedPreferences settings = LoadActivity.this.getSharedPreferences(
 				"preferences", 0);
-		
+
 		NetworkChecker nc = new NetworkChecker();
 		boolean netstat = nc.isConnected(LoadActivity.this);
-		
+
 		// Log.e("NETSTAT", String.valueOf(netstat));
-		
+
 		if(netstat) {
 			SharedPreferences.Editor preferencesEditor = settings.edit();
 			preferencesEditor.putString("NetworkConnectionAvailable",

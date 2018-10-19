@@ -1,20 +1,12 @@
 /*
-  * Copyright (C) 2014 Universitätsbibliothek Mannheim
+ * Copyright (C) 2014-2018 Universitätsbibliothek Mannheim
  *
- * Author:
- *    Universitätsbibliothek Mannheim <sysadmin@bib.uni-mannheim.de>
- *    Last modified on 2016-03-15
- * 
- * 
- * This is free software licensed under the terms of the GNU GPL, 
+ * This is free software licensed under the terms of the GNU GPL,
  * version 3, or (at your option) any later version.
  * See <http://www.gnu.org/licenses/> for more details.
  *
- *
- * Shows a defined number of blog entries as a list. 
+ * Shows a defined number of blog entries as a list.
  * This may be online or database content.
- * 
- * 
  */
 
 package de.uni_mannheim.bib.app;
@@ -56,11 +48,11 @@ public class BlogActivity extends ActionBarActivity {
 	public void onCreate(Bundle savedInstanceState) {
 
 		ActivityRegistry.register(this);
-		
+
 		if(log_enabled) {
 			Log.e( this.getClass().getName().toUpperCase().toString(), " ... LOADED");
 		}
-		
+
 		// Screen Layout for main Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_blog);
@@ -204,7 +196,7 @@ public class BlogActivity extends ActionBarActivity {
 										Thread.MIN_PRIORITY);
 								progressBarStatus += 1;
 							} catch (Exception e) {
-								
+
 								// Log Message
 								if(log_enabled) {
 									Log.e("", "Error on interrupt " + e);
@@ -244,111 +236,67 @@ public class BlogActivity extends ActionBarActivity {
 				} // while end
 
 				// Ok, action is fulfilled
-				if (progressBarStatus >= 100) {
+
+				// Log Message
+				if (log_enabled) {
+					Log.e(this.getClass().toString(), "ProgressBar Full");
+				}
+
+				// Sleep some Seconds, so that you can see the 100%
+				try {
+					// Thread.sleep(2000);
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+				// If Global News available
+				if (newsList != null) {
 
 					// Log Message
 					if (log_enabled) {
-						Log.e(this.getClass().toString(), "ProgressBar Full");
+						for (String[] n : newsList) {
+							Log.e(this.getClass().toString(),
+									"newsList Content: " +
+									// n.toString());
+									":" + n[0].toString() + ":");
+						}
 					}
 
-					// Sleep some Seconds, so that you can see the 100%
-					try {
-						// Thread.sleep(2000);
-						Thread.sleep(1);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
+					// If DB Mode on update History
+					if (db_mode_on.equals("true")) {
+						History hnews = new History(1, 1, dbh.getDateTime());
+						dbh.updateHistory(hnews);
 					}
 
-					// If Global News available
-					if (newsList != null) {
+					// Log Message
+					if (log_enabled) {
+						Log.e(this.getClass().toString(), "pre gv.post ...");
+					}
 
-						// Log Message
-						if (log_enabled) {
-							for (String[] n : newsList) {
-								Log.e(this.getClass().toString(),
-										"newsList Content: " +
-										// n.toString());
-										":" + n[0].toString() + ":");
-							}
-						}
+					// Fill Adapter
+					gv.post(new Runnable() {
+						@Override
+						public void run() {
 
-						// If DB Mode on update History
-						if (db_mode_on.equals("true")) {
-							History hnews = new History(1, 1, dbh.getDateTime());
-							dbh.updateHistory(hnews);
-						}
+							if (((newsList.get(0)[0].length() == 0) && (db_mode_on
+									.equals("true")))
+									|| newsList.get(0)[0].equals("")) {
 
-						// Log Message
-						if (log_enabled) {
-							Log.e(this.getClass().toString(), "pre gv.post ...");
-						}
-
-						// Fill Adapter
-						gv.post(new Runnable() {
-							@Override
-							public void run() {
-
-								if (((newsList.get(0)[0].length() == 0) && (db_mode_on
-										.equals("true")))
-										|| newsList.get(0)[0].equals("")) {
-
-									// Log Message
-									if (log_enabled) {
-										Log.e(this.getClass().toString(),
-												"GET 0" + newsList.get(0)[0]);
-									}
-
-									progressBar.dismiss();
-
-									new AlertDialog.Builder(
-											BlogActivity.this)
-											.setTitle(getString(R.string.dialog_newsActivity_cache_state__title))
-											.setMessage(getString(R.string.dialog_newsActivity_cache_state__message))
-											.setPositiveButton(
-													getString(R.string.dialog_newsActivity_cache_state__positive),
-													new DialogInterface.OnClickListener() {
-														@Override
-														public void onClick(
-																DialogInterface dialog,
-																int which) {
-															Intent intent = new Intent(
-																	BlogActivity.this,
-																	MainActivity.class);
-															startActivity(intent);
-														}
-													}).show();
-
-								} else {
-
-									gv.setAdapter(new BlogAdapter(ba, newsList
-											.get(0), newsList.get(1)));
-
-									// Close Loading Dialog
-									// progressBar.dismiss(); // called at end
-									// of Loop
-									// GridView visibility on
-									gv.setVisibility(View.VISIBLE);
-
+								// Log Message
+								if (log_enabled) {
+									Log.e(this.getClass().toString(),
+											"GET 0" + newsList.get(0)[0]);
 								}
-							}
 
-						});
-
-						// If exist Global News NOT available
-					} else {
-
-						gv.post(new Runnable() {
-							@Override
-							public void run() {
-
-								// Close Loading Dialog
 								progressBar.dismiss();
 
-								new AlertDialog.Builder(BlogActivity.this)
-										.setTitle(getString(R.string.dialog_newsActivity_connection_error__title))
-										.setMessage(getString(R.string.dialog_newsActivity_connection_error__message))
+								new AlertDialog.Builder(
+										BlogActivity.this)
+										.setTitle(getString(R.string.dialog_newsActivity_cache_state__title))
+										.setMessage(getString(R.string.dialog_newsActivity_cache_state__message))
 										.setPositiveButton(
-												getString(R.string.dialog_newsActivity_connection_error__positive),
+												getString(R.string.dialog_newsActivity_cache_state__positive),
 												new DialogInterface.OnClickListener() {
 													@Override
 													public void onClick(
@@ -361,15 +309,56 @@ public class BlogActivity extends ActionBarActivity {
 													}
 												}).show();
 
+							} else {
+
+								gv.setAdapter(new BlogAdapter(ba, newsList
+										.get(0), newsList.get(1)));
+
+								// Close Loading Dialog
+								// progressBar.dismiss(); // called at end
+								// of Loop
+								// GridView visibility on
+								gv.setVisibility(View.VISIBLE);
+
 							}
-						});
+						}
 
-					}
+					});
 
-					// Close the ProgressBar dialog
-					progressBar.dismiss();
+					// If exist Global News NOT available
+				} else {
 
-				} // if progressBarStatus >= 100
+					gv.post(new Runnable() {
+						@Override
+						public void run() {
+
+							// Close Loading Dialog
+							progressBar.dismiss();
+
+							new AlertDialog.Builder(BlogActivity.this)
+									.setTitle(getString(R.string.dialog_newsActivity_connection_error__title))
+									.setMessage(getString(R.string.dialog_newsActivity_connection_error__message))
+									.setPositiveButton(
+											getString(R.string.dialog_newsActivity_connection_error__positive),
+											new DialogInterface.OnClickListener() {
+												@Override
+												public void onClick(
+														DialogInterface dialog,
+														int which) {
+													Intent intent = new Intent(
+															BlogActivity.this,
+															MainActivity.class);
+													startActivity(intent);
+												}
+											}).show();
+
+						}
+					});
+
+				}
+
+				// Close the ProgressBar dialog
+				progressBar.dismiss();
 
 			} // end void run
 
@@ -405,24 +394,24 @@ public class BlogActivity extends ActionBarActivity {
 
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	@Override
 	public void onBackPressed() {
-		
+
 		NavUtils.navigateUpFromSameTask(this);
-        
+
 	}
-	
+
 	@Override
 	public void onRestart() {
 		super.onRestart();
-		
+
 		SharedPreferences settings = BlogActivity.this.getSharedPreferences(
 				"preferences", 0);
-		
+
 		NetworkChecker nc = new NetworkChecker();
 		boolean netstat = nc.isConnected(BlogActivity.this);
-		
+
 		if(netstat) {
 			SharedPreferences.Editor preferencesEditor = settings.edit();
 			preferencesEditor.putString("NetworkConnectionAvailable",
