@@ -22,7 +22,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,7 +30,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
 
-public class BlogActivity extends ActionBarActivity {
+public class BlogActivity extends AppCompatActivity {
 
 	private boolean log_enabled = false;
 

@@ -27,7 +27,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -36,10 +36,10 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 
-public class OfflineActivity extends ActionBarActivity {
+public class OfflineActivity extends AppCompatActivity {
 
 	// For customized and consistent UI (Android 2.3 - 4.x)
-	// Always extend ActionBarActivity
+	// Always extend AppCompatActivity
 
 	private boolean log_enabled = false;
 	

@@ -32,14 +32,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 
-public class ConfigActivity<E> extends ActionBarActivity {
+public class ConfigActivity<E> extends AppCompatActivity {
 
 	private boolean log_enabled = false;
 	

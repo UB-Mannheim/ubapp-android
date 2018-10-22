@@ -21,12 +21,12 @@ package de.uni_mannheim.bib.app;
 import android.os.Bundle;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class HelpActivity extends ActionBarActivity {
+public class HelpActivity extends AppCompatActivity {
 
 	private boolean log_enabled = false;
 

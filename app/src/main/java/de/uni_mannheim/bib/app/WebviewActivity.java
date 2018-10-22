@@ -32,7 +32,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.transition.Visibility;
 import android.util.Log;
 import android.view.Menu;
@@ -46,7 +46,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class WebviewActivity extends ActionBarActivity {
+public class WebviewActivity extends AppCompatActivity {
 
     // Logs
 	private boolean log_enabled = false;
@@ -64,7 +64,7 @@ public class WebviewActivity extends ActionBarActivity {
 	public String state = "";
 
 	// For customized and consistent UI (Android 2.3 - 4.x)
-	// Always extend ActionBarActivity
+	// Always extend AppCompatActivity
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
