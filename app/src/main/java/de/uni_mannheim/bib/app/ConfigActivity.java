@@ -95,7 +95,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		restart_app = false;
 		
 		// Any existing databases?
-		if (existsDB(db) == false) {
+		if (!existsDB(db)) {
 
 			// Log Message
 			if (log_enabled) {
@@ -191,13 +191,13 @@ public class ConfigActivity<E> extends ActionBarActivity {
 				// avoided and transferred to LoadActivity/BlogActivity or
 				// DataCollector
 				
-				if (cb1.isChecked() == false) {
+				if (!cb1.isChecked()) {
 					deleteDatabase();
 					preferencesEditor.putString("Config_DatabaseModeOn", "false");
 					preferencesEditor.commit();
 				}
 				
-				if (cb1.isChecked() == true) {
+				if (cb1.isChecked()) {
 					createDatabase();
 					preferencesEditor.putString("Config_DatabaseModeOn", "true");
 					preferencesEditor.commit();
@@ -390,7 +390,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		String name = this.getPackageName();
 		File dbfile = new File("data/data/" + name + "/databases/" + dbname);
 
-		if (dbfile.exists() == true) {
+		if (dbfile.exists()) {
 			db_exists = true;
 		}
 
@@ -534,7 +534,7 @@ public class ConfigActivity<E> extends ActionBarActivity {
 		File dbfile2 = new File("data/data/" + packagename + "/databases/" + db
 				+ "-journal");
 
-		if (dbfile.exists() == true) {
+		if (dbfile.exists()) {
 
 			try {
 				// boolean del = dbfile.delete();

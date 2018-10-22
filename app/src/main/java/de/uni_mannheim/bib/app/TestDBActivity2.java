@@ -61,7 +61,7 @@ public class TestDBActivity2 extends Activity {
 		File dbfile = new File("data/data/" + packagename + "/databases/"
 				+ this.dbname);
 
-		if (dbfile.exists() == true) {
+		if (dbfile.exists()) {
 			txt1.setText("Database Online");
 		} else {
 			txt1.setText("Database offline");
@@ -293,7 +293,7 @@ public class TestDBActivity2 extends Activity {
 		File dbfile2 = new File("data/data/" + packagename + "/databases/"
 				+ this.dbname + "-journal");
 
-		if (dbfile.exists() == true) {
+		if (dbfile.exists()) {
 
 			try {
 				// boolean del = dbfile.delete();
