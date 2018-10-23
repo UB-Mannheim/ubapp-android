@@ -57,7 +57,7 @@ public class OfflineActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_offline);
 
 		// Show the Up button in the action bar. (Autmatic)
-		setupActionBar();
+		//setupActionBar();
 
 		// Customized Actionbar (Color, Title)
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();

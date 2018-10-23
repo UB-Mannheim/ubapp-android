@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "de.uni_mannheim.bib.app"
         minSdkVersion 14
-        targetSdkVersion 18
+        targetSdkVersion 28
     }
 
     buildTypes {

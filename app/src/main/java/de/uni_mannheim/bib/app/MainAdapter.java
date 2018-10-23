@@ -141,8 +141,8 @@ public class MainAdapter extends BaseAdapter {
 						openWebViewWithUrl(
 								context,
 								WebviewActivity.class,
-								"http://www.bib.uni-mannheim.de",
-								// "http://anyplace.cs.ucy.ac.cy/viewer/",
+								"https://www.bib.uni-mannheim.de",
+								// "https://anyplace.cs.ucy.ac.cy/viewer/",
 								"www");
 					} else {
 

@@ -233,7 +233,7 @@ public class StartUpActivity extends Activity {
 
 				openWebViewWithUrl(this.getApplicationContext(),
 						WebviewActivity.class,
-						"http://www.bib.uni-mannheim.de",
+						"https://www.bib.uni-mannheim.de",
 						"www");
 			}
 

@@ -31,9 +31,9 @@ public class BlogParser {
 
 	private boolean log_enabled = false;
 
-	protected String url = "http://blog.bib.uni-mannheim.de/Aktuelles/";
+	protected String url = "https://blog.bib.uni-mannheim.de/Aktuelles/";
 	// Alternate URL with lookup in Category 4
-	// protected String url = "http://blog.bib.uni-mannheim.de/Aktuelles/?cat=4";
+	// protected String url = "https://blog.bib.uni-mannheim.de/Aktuelles/?cat=4";
 	protected String[][] news;
 	
 	public BlogParser() {
